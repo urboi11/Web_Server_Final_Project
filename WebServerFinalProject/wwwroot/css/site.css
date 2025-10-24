@@ -29,3 +29,15 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+:root {
+    --brand-1: #ff8fb1; /* pink */
+}
+
+.navbar-brand {
+    color: var(--brand-1) !important;
+}
+
+.nav-link:hover {
+    color: var(--brand-1) !important;
+}

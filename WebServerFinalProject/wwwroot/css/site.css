@@ -1,43 +1,93 @@
-html {
-  font-size: 14px;
+﻿h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Merriweather', serif;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+
+/* HEADER */
+header.cozy-header {
+    background-color: #fffdf8; /* white bar behind nav or title */
+    border-bottom: 5px solid #909c8a; /* the visible green-gray border line */
+    padding: 0.75rem 0; /* gives the bar some height so the border isn’t glued to text */
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
 
 body {
-  margin-bottom: 60px;
+    background-color: #f6f3ee; /* off-white */
+    color: #585f52;
+    line-height: 1.6;    
+    font-family: 'Quicksand', sans-serif;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+a {
+    color: #697263;
+    text-decoration: none;
+    font-size:16px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.nav-item {
+    font-size: 20px;
+    color: #697263;
 }
 
-:root {
-    --brand-1: #ff8fb1; /* pink */
+a:hover {
+    text-decoration: underline;
+    background-color: #909c8a7f;
+    border-radius: 0.75rem; /* soft rounded corners */
 }
 
-.navbar-brand {
-    color: var(--brand-1) !important;
+
+   header.cozy-header {
+        border-bottom: 5px solid #909c8a;
+        background-color: #ffffff;
+    }
+
+a.navbar-brand {
+    font-size: 30px;
+    color: #697263;
 }
 
-.nav-link:hover {
-    color: var(--brand-1) !important;
+footer {
+    border-bottom: 10px solid #909c8a;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: italic;
 }
+
+/* MAIN CONTENT AREA */
+main {
+    background-color: #ffffff; /* white content area */
+    border: 3px dashed #909c8a; /* same accent as header/footer */
+    border-radius: 0.75rem; /* soft rounded corners */
+    margin: 40px auto; /* space below header and before footer */
+    padding: 2.5rem; /* roomy inside padding */
+    max-width: 1200px; /* limits width for readability */
+    width: 90%; /* keeps mobile spacing comfy */
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05); /* soft drop shadow for depth */
+}
+
+.content-wrapper {
+    text-align: left;
+}
+
+/* Page headings inside main */
+main h1, main h2 {
+    color: #697263;
+    margin-bottom: 1rem;
+    text-align: center; /* optional - centered title look */
+}
+
+main p {
+    color: #4b4f46;
+    font-size: 18px;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+/* Simple card look for sections like recipes/tips */
+.card {
+    background-color: #fffdf8;
+    border: 3px dashed #909c8a;
+    padding: 1.5rem;
+}
+

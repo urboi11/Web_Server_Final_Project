@@ -1,93 +1,121 @@
-﻿h1, h2, h3, h4, .navbar-brand {
+﻿/* ---------- HEADER BASE ---------- */
+.cozy-header {
+    background-color: #fffdf8; /* soft cream background */
+}
+
+/* ---------- BRAND / LOGO ---------- */
+.cozy-topbar {
+    padding: 1.25rem 1rem;
+}
+
+.navbar-brand {
+    font-size: 32px;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    line-height: 1.1;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+/* two-color logo: Cozy (teal) + Bakes (peach) */
+.brand-script {
     font-family: 'Merriweather', serif;
+    color: #2f6b67; /* bakery teal */
+    font-weight: 700;
 }
 
-
-/* HEADER */
-header.cozy-header {
-    background-color: #fffdf8; /* white bar behind nav or title */
-    border-bottom: 5px solid #909c8a; /* the visible green-gray border line */
-    padding: 0.75rem 0; /* gives the bar some height so the border isn’t glued to text */
+.brand-serif {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    color: #f7cf9f; /* warm peach */
 }
 
+.navbar-brand:hover {
+    text-decoration: none;
+    background-color: transparent;
+}
 
+/* ---------- NAVIGATION BAR ---------- */
+.cozy-nav-bar {
+    background-color: #94b8ad; /* pastel sage-teal strip */
+    border-bottom: 5.5px solid #f7cf9f; /* peach accent line */
+    text-align: center;
+    padding: 0;
+}
+
+    /* nav list */
+    .cozy-nav-bar .navbar-nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* nav items */
+    .cozy-nav-bar .nav-item {
+        display: inline-block;
+    }
+
+    /* nav links */
+    .cozy-nav-bar .nav-link {
+        color: #ffffff; /* white text */
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        line-height: 3.5rem; /* height of bar */
+        display: inline-block;
+        padding: 0 0.75rem;
+    }
+
+        .cozy-nav-bar .nav-link:hover {
+            background-color: rgba(255,255,255,0.18);
+            border-radius: 0.5rem;
+            text-decoration: none;
+        }
+
+/* ---------- BODY + MAIN ---------- */
 body {
-    background-color: #f6f3ee; /* off-white */
+    background-color: #f3f0e6;
     color: #585f52;
-    line-height: 1.6;    
+    line-height: 1.6;
     font-family: 'Quicksand', sans-serif;
 }
 
-a {
-    color: #697263;
-    text-decoration: none;
-    font-size:16px;
+main {
+    background-color: #fffdf8;
+    border: 5px dashed #f7cf9f; /* pale pink border */
+    border-radius: 0.75rem;
+    margin: 40px auto;
+    padding: 2.5rem;
+    max-width: 1200px;
+    width: 90%;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
 }
 
-.nav-item {
-    font-size: 20px;
-    color: #697263;
-}
-
-a:hover {
-    text-decoration: underline;
-    background-color: #909c8a7f;
-    border-radius: 0.75rem; /* soft rounded corners */
-}
-
-
-   header.cozy-header {
-        border-bottom: 5px solid #909c8a;
-        background-color: #ffffff;
+    main h1,
+    main h2 {
+        color: #2f6b67; /* deep teal headings */
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 700;
     }
 
-a.navbar-brand {
-    font-size: 30px;
-    color: #697263;
-}
+    main p {
+        color: #4b4f46;
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
 
+/* ---------- FOOTER ---------- */
 footer {
-    border-bottom: 10px solid #909c8a;
     padding: 1rem 0;
     text-align: center;
     font-size: 0.75rem;
     font-style: italic;
+    color: #585f52;
+    background-color: transparent;
 }
-
-/* MAIN CONTENT AREA */
-main {
-    background-color: #ffffff; /* white content area */
-    border: 3px dashed #909c8a; /* same accent as header/footer */
-    border-radius: 0.75rem; /* soft rounded corners */
-    margin: 40px auto; /* space below header and before footer */
-    padding: 2.5rem; /* roomy inside padding */
-    max-width: 1200px; /* limits width for readability */
-    width: 90%; /* keeps mobile spacing comfy */
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05); /* soft drop shadow for depth */
-}
-
-.content-wrapper {
-    text-align: left;
-}
-
-/* Page headings inside main */
-main h1, main h2 {
-    color: #697263;
-    margin-bottom: 1rem;
-    text-align: center; /* optional - centered title look */
-}
-
-main p {
-    color: #4b4f46;
-    font-size: 18px;
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
-
-/* Simple card look for sections like recipes/tips */
-.card {
-    background-color: #fffdf8;
-    border: 3px dashed #909c8a;
-    padding: 1.5rem;
-}
-

@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\Web_Server_Final_Project\\WebServerFinalProject\\WebServerFinalProject.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\Web_Server_Final_Project\\WebServerFinalProject\\WebServerFinalProject.csproj",
       "projectName": "WebServerFinalProject",
-      "projectPath": "C:\\Users\\User\\source\\repos\\Web_Server_Final_Project\\WebServerFinalProject\\WebServerFinalProject.csproj",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\Web_Server_Final_Project\\WebServerFinalProject\\WebServerFinalProject.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\Web_Server_Final_Project\\WebServerFinalProject\\obj\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\Web_Server_Final_Project\\WebServerFinalProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

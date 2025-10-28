@@ -1,43 +1,121 @@
-html {
-  font-size: 14px;
+﻿/* ---------- HEADER BASE ---------- */
+.cozy-header {
+    background-color: #fffdf8; /* soft cream background */
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
-
-:root {
-    --brand-1: #ff8fb1; /* pink */
+/* ---------- BRAND / LOGO ---------- */
+.cozy-topbar {
+    padding: 1.25rem 1rem;
 }
 
 .navbar-brand {
-    color: var(--brand-1) !important;
+    font-size: 32px;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    line-height: 1.1;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
 }
 
-.nav-link:hover {
-    color: var(--brand-1) !important;
+/* two-color logo: Cozy (teal) + Bakes (peach) */
+.brand-script {
+    font-family: 'Merriweather', serif;
+    color: #2f6b67; /* bakery teal */
+    font-weight: 700;
+}
+
+.brand-serif {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    color: #f7cf9f; /* warm peach */
+}
+
+.navbar-brand:hover {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/* ---------- NAVIGATION BAR ---------- */
+.cozy-nav-bar {
+    background-color: #94b8ad; /* pastel sage-teal strip */
+    border-bottom: 5.5px solid #f7cf9f; /* peach accent line */
+    text-align: center;
+    padding: 0;
+}
+
+    /* nav list */
+    .cozy-nav-bar .navbar-nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* nav items */
+    .cozy-nav-bar .nav-item {
+        display: inline-block;
+    }
+
+    /* nav links */
+    .cozy-nav-bar .nav-link {
+        color: #ffffff; /* white text */
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        line-height: 3.5rem; /* height of bar */
+        display: inline-block;
+        padding: 0 0.75rem;
+    }
+
+        .cozy-nav-bar .nav-link:hover {
+            background-color: rgba(255,255,255,0.18);
+            border-radius: 0.5rem;
+            text-decoration: none;
+        }
+
+/* ---------- BODY + MAIN ---------- */
+body {
+    background-color: #f3f0e6;
+    color: #585f52;
+    line-height: 1.6;
+    font-family: 'Quicksand', sans-serif;
+}
+
+main {
+    background-color: #fffdf8;
+    border: 5px dashed #f7cf9f; /* pale pink border */
+    border-radius: 0.75rem;
+    margin: 40px auto;
+    padding: 2.5rem;
+    max-width: 1200px;
+    width: 90%;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+}
+
+    main h1,
+    main h2 {
+        color: #2f6b67; /* deep teal headings */
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    main p {
+        color: #4b4f46;
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+/* ---------- FOOTER ---------- */
+footer {
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: #585f52;
+    background-color: transparent;
 }

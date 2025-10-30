@@ -1,9 +1,153 @@
-﻿/* ---------- HEADER BASE ---------- */
-.cozy-header {
-    background-color: #fffdf8; /* soft cream background */
+﻿/* ---- CozyBakes palette ---- */
+:root {
+    --cozy-ink: #1E2939;
+    --cozy-body: #4A5565;
+    --cozy-muted: #6A7282;
+    --cozy-pink: #F890A8;
+    --cozy-peach: #F5B5AC;
+    --cozy-apricot: #F8D0A5;
+    --cozy-teal: #A3D9E3;
+    --cozy-mint: #8FE0C3;
 }
 
-/* ---------- BRAND / LOGO ---------- */
+/* Multicolor CozyBakes wordmark */
+.brand-script {
+    font-family: 'Leckerli One', cursive;
+    line-height: 1;
+    display: inline-flex;
+    gap: 2px;
+    vertical-align: middle;
+}
+
+    .brand-script .cozy {
+        color: #364153;
+    }
+    /* slate */
+    .brand-script .b {
+        color: var(--cozy-pink);
+    }
+
+    .brand-script .a {
+        color: var(--cozy-peach);
+    }
+
+    .brand-script .k {
+        color: var(--cozy-apricot);
+    }
+
+    .brand-script .e {
+        color: var(--cozy-teal);
+    }
+
+    .brand-script .s {
+        color: var(--cozy-mint);
+    }
+
+/* Hero */
+.cozy-hero .welcome-prefix {
+    color: var(--cozy-ink);
+    font-family: 'Quicksand', sans-serif;
+    margin-right: .25rem;
+}
+
+/* Buttons */
+.btn-teal {
+    background-color: var(--cozy-teal);
+    border: none;
+    color: #1F2937;
+    transition: background-color .2s ease, filter .2s ease, color .2s ease, border-color .2s ease;
+}
+
+    .btn-teal:hover {
+        /* slightly lighter look */
+        filter: brightness(1.06);
+        background-color: var(--cozy-teal);
+        border-color: var(--cozy-teal);
+        color: #1F2937;
+    }
+
+.btn-outline-teal {
+    border-color: var(--cozy-teal);
+    color: var(--cozy-teal);
+    transition: background-color .2s ease, filter .2s ease, color .2s ease, border-color .2s ease;
+}
+
+    .btn-outline-teal:hover {
+        background-color: var(--cozy-teal);
+        border-color: var(--cozy-teal);
+        color: #1F2937;
+        filter: brightness(1.03);
+    }
+
+
+/* Feature cards */
+.feature-card {
+    border-radius: 14px;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
+
+    .feature-icon::before,
+    .feature-icon::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 4px solid currentColor;
+        border-radius: 6px;
+    }
+
+    .feature-icon::after {
+        inset: 6px;
+        border-radius: 4px;
+        opacity: .9;
+    }
+
+.feature-pink {
+    color: var(--cozy-pink);
+}
+
+.feature-peach {
+    color: var(--cozy-apricot);
+}
+
+.feature-teal {
+    color: var(--cozy-teal);
+}
+
+.feature-mint {
+    color: var(--cozy-mint);
+}
+
+/* Recipe cards */
+.recipe-card {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+    .recipe-card .card-img-top {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+.text-brown {
+    color: #BB4D00 !important;
+}
+
+/* Footer (scoped) */
+.cozy-footer {
+    background: #F9FEFF;
+}
+
+/* ---------- HEADER BASE ---------- */
+.cozy-header {
+    background-color: #FFFFFF;
+}
+
+/* Top bar / brand */
 .cozy-topbar {
     padding: 1.25rem 1rem;
 }
@@ -19,66 +163,39 @@
     gap: 4px;
 }
 
-/* two-color logo: Cozy (teal) + Bakes (peach) */
-.brand-script {
-    font-family: 'Merriweather', serif;
-    color: #2f6b67; /* bakery teal */
-    font-weight: 700;
-}
-
-.brand-serif {
-    font-family: 'Merriweather', serif;
-    font-weight: 700;
-    color: #f7cf9f; /* warm peach */
-}
-
-.navbar-brand:hover {
-    text-decoration: none;
-    background-color: transparent;
-}
+    .navbar-brand:focus,
+    .navbar-brand:hover {
+        text-decoration: none;
+    }
 
 /* ---------- NAVIGATION BAR ---------- */
 .cozy-nav-bar {
-    background-color: #94b8ad; /* pastel sage-teal strip */
+    background-color: #94b8ad; /* sage-teal strip */
     border-bottom: 5.5px solid #f7cf9f; /* peach accent line */
     text-align: center;
     padding: 0;
 }
 
-    /* nav list */
-    .cozy-nav-bar .navbar-nav {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* nav items */
-    .cozy-nav-bar .nav-item {
-        display: inline-block;
-    }
-
-    /* nav links */
     .cozy-nav-bar .nav-link {
-        color: #ffffff; /* white text */
+        color: #ffffff;
         font-size: 1rem;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.05em;
         text-decoration: none;
-        line-height: 3.5rem; /* height of bar */
-        display: inline-block;
+        line-height: 3.5rem;
         padding: 0 0.75rem;
     }
 
         .cozy-nav-bar .nav-link:hover {
-            background-color: rgba(255,255,255,0.18);
+            background-color: rgba(255, 255, 255, 0.18);
             border-radius: 0.5rem;
             text-decoration: none;
         }
 
 /* ---------- BODY + MAIN ---------- */
 body {
-    background-color: #f3f0e6;
+    background-color: #FFFFFF;
     color: #585f52;
     line-height: 1.6;
     font-family: 'Quicksand', sans-serif;
@@ -86,7 +203,7 @@ body {
 
 main {
     background-color: #fffdf8;
-    border: 5px dashed #f7cf9f; /* pale pink border */
+    border: 5px dashed #f7cf9f;
     border-radius: 0.75rem;
     margin: 40px auto;
     padding: 2.5rem;
@@ -97,7 +214,7 @@ main {
 
     main h1,
     main h2 {
-        color: #2f6b67; /* deep teal headings */
+        color: #2f6b67;
         margin-bottom: 1rem;
         text-align: center;
         font-weight: 700;
@@ -109,13 +226,3 @@ main {
         line-height: 1.7;
         margin-bottom: 1rem;
     }
-
-/* ---------- FOOTER ---------- */
-footer {
-    padding: 1rem 0;
-    text-align: center;
-    font-size: 0.75rem;
-    font-style: italic;
-    color: #585f52;
-    background-color: transparent;
-}

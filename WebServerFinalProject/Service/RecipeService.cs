@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using WebServerFinalProject.Data;
 using WebServerFinalProject.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebServerFinalProject.Services
 {
@@ -18,7 +18,7 @@ namespace WebServerFinalProject.Services
 
         public async Task<List<Recipe>> GetAllRecipesAsync(string? searchQuery, string? difficulty)
         {
-            var query = _context.Recipes.Include(r => r.Category).AsQueryable();
+            var query = _context.Recipes.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchQuery))
             {
@@ -33,26 +33,25 @@ namespace WebServerFinalProject.Services
             return await query.ToListAsync();
         }
 
+        public async Task<Recipe> GetRecipeByIdAsync(int id)
+        {
+            return await _context.Recipes
+                .Include(r => r.Category)
+                .FirstOrDefaultAsync(r => r.ID == id);
+        }
+
         public async Task<List<Recipe>> GetRecipesByCategoryAsync(string category)
         {
             return await _context.Recipes
-                .Where(r => r.Category.Name.Equals(category))
-                .Include(r => r.Category)
+                .Where(r => r.Category.Name == category)
                 .ToListAsync();
         }
 
         public async Task<List<Recipe>> GetRecipesByTypeAsync(string type)
         {
             return await _context.Recipes
-                .Where(r => r.Type.Equals(type))
+                .Where(r => r.Type == type)
                 .ToListAsync();
-        }
-
-        public async Task<Recipe> GetRecipeByIdAsync(int id)
-        {
-            return await _context.Recipes
-                .Include(r => r.Category)
-                .FirstOrDefaultAsync(r => r.ID == id);
         }
     }
 }

@@ -1,15 +1,14 @@
-﻿using WebServerFinalProject.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using WebServerFinalProject.Models;
 
 namespace WebServerFinalProject.Services
 {
     public interface IRecipeService
     {
-        Task<List<Recipe>> GetAllRecipesAsync();
+        Task<List<Recipe>> GetAllRecipesAsync(string? searchQuery, string? difficulty);
+        Task<List<Recipe>> GetRecipesByCategoryAsync(string? category);
+        Task<List<Recipe>> GetRecipesByTypeAsync(string? type);
         Task<Recipe> GetRecipeByIdAsync(int id);
-        Task AddRecipeAsync(Recipe recipe);
-        Task UpdateRecipeAsync(Recipe recipe);
-        Task DeleteRecipeAsync(int id);
     }
 }

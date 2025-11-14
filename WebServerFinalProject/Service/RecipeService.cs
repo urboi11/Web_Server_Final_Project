@@ -1,8 +1,9 @@
-﻿using WebServerFinalProject.Models;
-using WebServerFinalProject.Data;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using WebServerFinalProject.Data;
+using WebServerFinalProject.Models;
 
 namespace WebServerFinalProject.Services
 {
@@ -15,40 +16,43 @@ namespace WebServerFinalProject.Services
             _context = context;
         }
 
-        public async Task<List<Recipe>> GetAllRecipesAsync()
+        public async Task<List<Recipe>> GetAllRecipesAsync(string? searchQuery, string? difficulty)
+        {
+            var query = _context.Recipes.Include(r => r.Category).AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                query = query.Where(r => r.Title.Contains(searchQuery) || r.Description.Contains(searchQuery));
+            }
+
+            if (!string.IsNullOrEmpty(difficulty))
+            {
+                query = query.Where(r => r.Difficulty.Equals(difficulty));
+            }
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<Recipe>> GetRecipesByCategoryAsync(string category)
         {
             return await _context.Recipes
-                .Include(r => r.Category)  // Include the Category data if needed
+                .Where(r => r.Category.Name.Equals(category))
+                .Include(r => r.Category)
+                .ToListAsync();
+        }
+
+        public async Task<List<Recipe>> GetRecipesByTypeAsync(string type)
+        {
+            return await _context.Recipes
+                .Where(r => r.Type.Equals(type))
                 .ToListAsync();
         }
 
         public async Task<Recipe> GetRecipeByIdAsync(int id)
         {
             return await _context.Recipes
-                .Include(r => r.Category)  // Include the Category data if needed
+                .Include(r => r.Category)
                 .FirstOrDefaultAsync(r => r.ID == id);
-        }
-
-        public async Task AddRecipeAsync(Recipe recipe)
-        {
-            await _context.Recipes.AddAsync(recipe);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task UpdateRecipeAsync(Recipe recipe)
-        {
-            _context.Recipes.Update(recipe);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task DeleteRecipeAsync(int id)
-        {
-            var recipe = await _context.Recipes.FindAsync(id);
-            if (recipe != null)
-            {
-                _context.Recipes.Remove(recipe);
-                await _context.SaveChangesAsync();
-            }
         }
     }
 }

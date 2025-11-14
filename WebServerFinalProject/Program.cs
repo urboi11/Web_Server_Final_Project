@@ -18,6 +18,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IIngredientService, IngredientService>();
 builder.Services.AddScoped<IRecipeService, RecipeService>();
 builder.Services.AddScoped<IRecipeIngredientService, RecipeIngredientService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
 // builder.Services.AddAuthentication(options => { /* Authentication configuration */ });

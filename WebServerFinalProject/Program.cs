@@ -15,6 +15,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add other services if needed
 // For example, if you're using authentication, logging, etc.
 builder.Services.AddScoped<IIngredientService, IngredientService>();
+builder.Services.AddScoped<IRecipeService, RecipeService>();
+
 // builder.Services.AddAuthentication(options => { /* Authentication configuration */ });
 // builder.Services.AddLogging();
 

@@ -1,43 +1,228 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
-
+﻿/* ---- CozyBakes palette ---- */
 :root {
-    --brand-1: #ff8fb1; /* pink */
+    --cozy-ink: #1E2939;
+    --cozy-body: #4A5565;
+    --cozy-muted: #6A7282;
+    --cozy-pink: #F890A8;
+    --cozy-peach: #F5B5AC;
+    --cozy-apricot: #F8D0A5;
+    --cozy-teal: #A3D9E3;
+    --cozy-mint: #8FE0C3;
+}
+
+/* Multicolor CozyBakes wordmark */
+.brand-script {
+    font-family: 'Leckerli One', cursive;
+    line-height: 1;
+    display: inline-flex;
+    gap: 2px;
+    vertical-align: middle;
+}
+
+    .brand-script .cozy {
+        color: #364153;
+    }
+    /* slate */
+    .brand-script .b {
+        color: var(--cozy-pink);
+    }
+
+    .brand-script .a {
+        color: var(--cozy-peach);
+    }
+
+    .brand-script .k {
+        color: var(--cozy-apricot);
+    }
+
+    .brand-script .e {
+        color: var(--cozy-teal);
+    }
+
+    .brand-script .s {
+        color: var(--cozy-mint);
+    }
+
+/* Hero */
+.cozy-hero .welcome-prefix {
+    color: var(--cozy-ink);
+    font-family: 'Quicksand', sans-serif;
+    margin-right: .25rem;
+}
+
+/* Buttons */
+.btn-teal {
+    background-color: var(--cozy-teal);
+    border: none;
+    color: #1F2937;
+    transition: background-color .2s ease, filter .2s ease, color .2s ease, border-color .2s ease;
+}
+
+    .btn-teal:hover {
+        /* slightly lighter look */
+        filter: brightness(1.06);
+        background-color: var(--cozy-teal);
+        border-color: var(--cozy-teal);
+        color: #1F2937;
+    }
+
+.btn-outline-teal {
+    border-color: var(--cozy-teal);
+    color: var(--cozy-teal);
+    transition: background-color .2s ease, filter .2s ease, color .2s ease, border-color .2s ease;
+}
+
+    .btn-outline-teal:hover {
+        background-color: var(--cozy-teal);
+        border-color: var(--cozy-teal);
+        color: #1F2937;
+        filter: brightness(1.03);
+    }
+
+
+/* Feature cards */
+.feature-card {
+    border-radius: 14px;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
+
+    .feature-icon::before,
+    .feature-icon::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 4px solid currentColor;
+        border-radius: 6px;
+    }
+
+    .feature-icon::after {
+        inset: 6px;
+        border-radius: 4px;
+        opacity: .9;
+    }
+
+.feature-pink {
+    color: var(--cozy-pink);
+}
+
+.feature-peach {
+    color: var(--cozy-apricot);
+}
+
+.feature-teal {
+    color: var(--cozy-teal);
+}
+
+.feature-mint {
+    color: var(--cozy-mint);
+}
+
+/* Recipe cards */
+.recipe-card {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+    .recipe-card .card-img-top {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+    }
+
+.text-brown {
+    color: #BB4D00 !important;
+}
+
+/* Footer (scoped) */
+.cozy-footer {
+    background: #F9FEFF;
+}
+
+/* ---------- HEADER BASE ---------- */
+.cozy-header {
+    background-color: #FFFFFF;
+}
+
+/* Top bar / brand */
+.cozy-topbar {
+    padding: 1.25rem 1rem;
 }
 
 .navbar-brand {
-    color: var(--brand-1) !important;
+    font-size: 32px;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    line-height: 1.1;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
 }
 
-.nav-link:hover {
-    color: var(--brand-1) !important;
+    .navbar-brand:focus,
+    .navbar-brand:hover {
+        text-decoration: none;
+    }
+
+/* ---------- NAVIGATION BAR ---------- */
+.cozy-nav-bar {
+    background-color: #94b8ad; /* sage-teal strip */
+    border-bottom: 5.5px solid #f7cf9f; /* peach accent line */
+    text-align: center;
+    padding: 0;
 }
+
+    .cozy-nav-bar .nav-link {
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        line-height: 3.5rem;
+        padding: 0 0.75rem;
+    }
+
+        .cozy-nav-bar .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.18);
+            border-radius: 0.5rem;
+            text-decoration: none;
+        }
+
+/* ---------- BODY + MAIN ---------- */
+body {
+    background-color: #FFFFFF;
+    color: #585f52;
+    line-height: 1.6;
+    font-family: 'Quicksand', sans-serif;
+}
+
+main {
+    background-color: #fffdf8;
+    border: 5px dashed #f7cf9f;
+    border-radius: 0.75rem;
+    margin: 40px auto;
+    padding: 2.5rem;
+    max-width: 1200px;
+    width: 90%;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+}
+
+    main h1,
+    main h2 {
+        color: #2f6b67;
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    main p {
+        color: #4b4f46;
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }

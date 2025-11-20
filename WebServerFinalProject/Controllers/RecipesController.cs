@@ -49,12 +49,11 @@ namespace WebServerFinalProject.Controllers
         // /Recipes/Type
         public IActionResult Type(string? type)
         {
-            return View();
-        }
-
-        // /Recipes/Details
-        public IActionResult Details(int id)
-        {
+            if(!type.IsNullOrEmpty())
+            {
+                var typedRecipes = _dbContext.Recipes.Where(r => r.Type == type).ToList();
+                return View(typedRecipes);
+            }
             return View();
         }
     }

@@ -26,11 +26,6 @@ public class HomeController : Controller
         }
         return View(returnedAmount);
     }
-    public IActionResult AboutHobby()
-    {
-        
-        return View();
-    }
 
     public IActionResult AboutUs()
     {

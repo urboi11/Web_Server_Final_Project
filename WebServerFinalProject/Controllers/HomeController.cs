@@ -26,20 +26,15 @@ public class HomeController : Controller
         }
         return View(returnedAmount);
     }
-
-    public IActionResult Privacy()
+    public IActionResult AboutHobby()
     {
+        
         return View();
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    public IActionResult AboutUs()
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+       return View();
     }
-
-    // Placeholder actions for additional pages 
-    public IActionResult AboutHobby() => View();
-    public IActionResult AboutUs() => View();
 
 }

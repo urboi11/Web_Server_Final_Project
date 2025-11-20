@@ -32,9 +32,18 @@ namespace WebServerFinalProject.Controllers
         }
 
         // /Recipes/Season
+        //TODO: The Drop down resets everytime the page refreshes(JavaScript stuff :) )
         public IActionResult Season(string? category)
         {
-            return View();
+            var seasonedRecipes = _dbContext.Recipes.Join(_dbContext.Categories, r => r.CategoryId, c => c.CategoryId, (r, c) => new { Recipe = r, CategoryName = c.Name })
+                .Where(rc => rc.CategoryName == category)
+                .ToList();
+            List<Recipe> recipes = new List<Recipe>();
+            foreach (var item in seasonedRecipes)
+            {
+                recipes.Add(item.Recipe);
+            }
+            return View(recipes);
         }
 
         // /Recipes/Type

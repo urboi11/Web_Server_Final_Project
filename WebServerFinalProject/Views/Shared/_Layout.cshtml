@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="cozy-body d-flex flex-column min-vh-100">
@@ -25,8 +25,10 @@
     <header class="cozy-header">
         <!-- Top cream band with brand/logo -->
         <div class="cozy-topbar container d-flex justify-content-center justify-content-md-start align-items-center">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                <span class="brand-script">Cozy</span><span class="brand-serif">Bakes</span>
+            <a class="navbar-brand d-inline-flex align-items-center gap-1" href="~/">
+                <span class="brand-script">
+                    <span class="cozy">Cozy</span><span class="b">B</span><span class="a">a</span><span class="k">k</span><span class="e">e</span><span class="s">s</span>
+                </span>
             </a>
         </div>
 
@@ -59,6 +61,16 @@
     <main class="flex-grow-1 py-4">
         <div class="container content-wrapper">
             @RenderBody()
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="cozy-footer border-top">
+        <div class="container text-center py-4 small">
+            <div class="brand-script small mb-1">
+                <span class="cozy">Cozy</span><span class="b">B</span><span class="a">a</span><span class="k">k</span><span class="e">e</span><span class="s">s</span>
+            </div>
+            <div class="text-body-tertiary">© 2025 CozyBakes • Web Server Application Development Group </div>
         </div>
     </main>
 

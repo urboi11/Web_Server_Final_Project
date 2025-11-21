@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebServerFinalProject.Data;  // Make sure to import the namespace for ApplicationDbContext
+using WebServerFinalProject.Service;
+using WebServerFinalProject.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Add other services if needed
 // For example, if you're using authentication, logging, etc.
+builder.Services.AddScoped<IIngredientService, IngredientService>();
+builder.Services.AddScoped<IRecipeService, RecipeService>();
+builder.Services.AddScoped<IRecipeIngredientService, RecipeIngredientService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
+
 // builder.Services.AddAuthentication(options => { /* Authentication configuration */ });
 // builder.Services.AddLogging();
 

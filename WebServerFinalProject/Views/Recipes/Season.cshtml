@@ -1,3 +1,22 @@
+@model List<Recipe>
 @{ ViewData["Title"] = "Seasonal"; }
-<h1>Recipes By Season</h1>
-<p>Seasonal grouping placeholder.</p>
+<form asp-action="Season" asp-controller="Recipes" method="post">
+    <div style="text-align: center;">
+        <select name="category" id="myDropdown">
+            <option value="Spring">Spring</option>
+            <option value="Fall">Fall</option>
+            <option value="Holiday">Holiday</option>
+        </select>
+        <button type="submit">Search</button>
+    </div>
+</form>
+@if(Model != null){
+  @foreach(Recipe recipe in Model){
+    <div class="SearchResults">
+      <p><strong>Recipe: </strong>@recipe.Title</p>
+      <p><strong>Description: </strong>@recipe.Description</p>
+      <p><strong>Prep Minutes: </strong>@recipe.PrepMinutes</p>
+      <p><strong>Bake Minutes: </strong>@recipe.BakeMinutes</p>
+    </div>
+  }
+}

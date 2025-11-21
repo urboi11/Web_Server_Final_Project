@@ -226,3 +226,15 @@ main {
         line-height: 1.7;
         margin-bottom: 1rem;
     }
+
+.SearchBar {
+    text-align:center;
+}   
+
+#myDropdown , .SearchBar, .SearchResults{
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  flex-grow: 1;
+}

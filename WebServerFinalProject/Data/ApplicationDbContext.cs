@@ -89,7 +89,7 @@ namespace WebServerFinalProject.Data
 
             // Seed RecipeIngredients (join table)
             modelBuilder.Entity<RecipeIngredient>().HasData(
-
+                
                 // -----------------------
                 // 1. Chocolate Cake
                 // -----------------------

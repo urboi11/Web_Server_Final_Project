@@ -9,7 +9,6 @@ namespace WebServerFinalProject.Controllers
     public class RecipesController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
-        // /Recipes
         public RecipesController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;

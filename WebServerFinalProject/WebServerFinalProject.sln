@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServerFinalProject", "WebServerFinalProject.csproj", "{82EF4371-778B-C955-2CEB-81C8D2C5C6A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "..\..\WebApplication1\WebApplication1\WebApplication1.csproj", "{5AFC67D2-8C2C-4435-A6BD-0FFB5C2A21C7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

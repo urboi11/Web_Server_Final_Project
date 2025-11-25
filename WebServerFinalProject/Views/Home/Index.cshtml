@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Recipe>
+@{
     ViewData["Title"] = "Home";
 }
 
@@ -63,28 +64,28 @@
         <!-- Card 1 -->
         <div class="col-12 col-md-6 col-lg-3">
             <article class="recipe-card card h-100">
-
+                @Model[0].Title                     
             </article>
         </div>
 
         <!-- Card 2 -->
         <div class="col-12 col-md-6 col-lg-3">
             <article class="recipe-card card h-100">
-            
+                @Model[1].Title
             </article>
         </div>
 
         <!-- Card 3 -->
         <div class="col-12 col-md-6 col-lg-3">
             <article class="recipe-card card h-100">
-        
+                @Model[2].Title
             </article>
         </div>
 
         <!-- Card 4 -->
         <div class="col-12 col-md-6 col-lg-3">
             <article class="recipe-card card h-100">
-
+                @Model[3].Title
             </article>
         </div>
 

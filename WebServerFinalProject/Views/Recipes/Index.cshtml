@@ -1,3 +1,28 @@
+@model List<Recipe>
 @{ ViewData["Title"] = "All Recipes"; }
+
+<div class="SearchBar">
 <h1>All Recipes</h1>
-<p>Recipe list with search/filter will render here.</p>
+  <form asp-action="Index" asp-controller="Recipes" method="post">
+        <input type="text" id="search-term" name="q" placeholder="Search for Recipes..." required>
+        <button type="submit">Search</button>
+        <select name="difficulty" id="myDropdown">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+    </select>
+  </form>
+</div>
+@if(Model != null){
+  @foreach(Recipe recipe in Model){
+    <div class="SearchResults">
+      <p><strong>Recipe: </strong>@recipe.Title</p>
+      <p><strong>Description: </strong>@recipe.Description</p>
+      <p><strong>Prep Minutes: </strong>@recipe.PrepMinutes</p>
+      <p><strong>Bake Minutes: </strong>@recipe.BakeMinutes</p>
+    </div>
+  }
+}
+
+
+

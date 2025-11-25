@@ -1,3 +1,21 @@
+@model List<Recipe>
 @{ ViewData["Title"] = "Recipe Type"; }
-<h1>Recipes By Type</h1>
-<p>Type grouping placeholder.</p>
+<form asp-action="Type" asp-controller="Recipes" method="post">
+    <div style="text-align: center;">
+        <select name="type" id="myDropdown">
+            <option value="Dessert">Dessert</option>
+            <option value="Soup">Soup</option>
+        </select>
+        <button type="submit">Search</button>
+    </div>
+</form>
+@if(Model != null){
+  @foreach(Recipe recipe in Model){
+    <div class="SearchResults">
+      <p><strong>Recipe: </strong>@recipe.Title</p>
+      <p><strong>Description: </strong>@recipe.Description</p>
+      <p><strong>Prep Minutes: </strong>@recipe.PrepMinutes</p>
+      <p><strong>Bake Minutes: </strong>@recipe.BakeMinutes</p>
+    </div>
+  }
+}

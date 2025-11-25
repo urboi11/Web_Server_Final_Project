@@ -13,14 +13,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
-// Add other services if needed
-// For example, if you're using authentication, logging, etc.
-builder.Services.AddScoped<IIngredientService, IngredientService>();
-builder.Services.AddScoped<IRecipeService, RecipeService>();
-builder.Services.AddScoped<IRecipeIngredientService, RecipeIngredientService>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-
-
 // builder.Services.AddAuthentication(options => { /* Authentication configuration */ });
 // builder.Services.AddLogging();
 

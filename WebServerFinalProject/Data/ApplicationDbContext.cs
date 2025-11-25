@@ -68,9 +68,6 @@ namespace WebServerFinalProject.Data
                 new Ingredient { IngredientId = 13, Name = "Ground Beef" },
                 new Ingredient { IngredientId = 14, Name = "Bananas" },
                 new Ingredient { IngredientId = 15, Name = "Milk" },
-                new Ingredient { IngredientId = 16, Name = "Vegetables" },
-                new Ingredient { IngredientId = 17, Name = "Olive Oil" },
-                new Ingredient { IngredientId = 18, Name = "Soy Sauce" }
             );
 
             // Seed Recipes

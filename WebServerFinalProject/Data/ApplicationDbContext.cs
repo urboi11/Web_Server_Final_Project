@@ -84,6 +84,7 @@ namespace WebServerFinalProject.Data
                 new RecipeIngredient { RecipeId = 3, IngredientId = 3, Quantity = 1, Unit = "cup" },
                 new RecipeIngredient { RecipeId = 3, IngredientId = 7, Quantity = 1, Unit = "tsp" }
             );
+        
         }
     }
 }

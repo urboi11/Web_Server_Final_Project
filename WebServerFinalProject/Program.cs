@@ -1,8 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using WebServerFinalProject.Data;  // Make sure to import the namespace for ApplicationDbContext
-using WebServerFinalProject.Service;
-using WebServerFinalProject.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -160,6 +160,7 @@ namespace WebServerFinalProject.Data
                 new RecipeIngredient { RecipeId = 10, IngredientId = 17, Quantity = 1, Unit = "tbsp" }, // Olive Oil
                 new RecipeIngredient { RecipeId = 10, IngredientId = 18, Quantity = 2, Unit = "tbsp" }  // Soy Sauce
             );
+        
         }
     }
 }

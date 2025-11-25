@@ -21,7 +21,11 @@ namespace WebServerFinalProject.Controllers
                 var recipes = _dbContext.Recipes.Where(n => (n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)) && n.Difficulty.Equals(difficulty)).ToList();
                 return View(recipes);
             }
-            return View();
+            else
+            {
+                var recipes = _dbContext.Recipes.ToList();
+                return View(recipes);
+            }
         }
 
         // /Recipes/Season

@@ -86,20 +86,79 @@ namespace WebServerFinalProject.Data
 
             // Seed RecipeIngredients (join table)
             modelBuilder.Entity<RecipeIngredient>().HasData(
+                
+                // -----------------------
+                // 1. Chocolate Cake
+                // -----------------------
                 new RecipeIngredient { RecipeId = 1, IngredientId = 1, Quantity = 2, Unit = "cups" },
                 new RecipeIngredient { RecipeId = 1, IngredientId = 2, Quantity = 1.5, Unit = "cups" },
                 new RecipeIngredient { RecipeId = 1, IngredientId = 3, Quantity = 3, Unit = "eggs" },
                 new RecipeIngredient { RecipeId = 1, IngredientId = 4, Quantity = 0.5, Unit = "cups" },
 
+                // -----------------------
+                // 2. Apple Pie
+                // -----------------------
                 new RecipeIngredient { RecipeId = 2, IngredientId = 1, Quantity = 3, Unit = "cups" },
                 new RecipeIngredient { RecipeId = 2, IngredientId = 2, Quantity = 1, Unit = "cup" },
                 new RecipeIngredient { RecipeId = 2, IngredientId = 3, Quantity = 2, Unit = "eggs" },
                 new RecipeIngredient { RecipeId = 2, IngredientId = 4, Quantity = 0.75, Unit = "cups" },
 
+                // -----------------------
+                // 3. Pumpkin Soup
+                // -----------------------
                 new RecipeIngredient { RecipeId = 3, IngredientId = 1, Quantity = 1, Unit = "cup" },
                 new RecipeIngredient { RecipeId = 3, IngredientId = 2, Quantity = 0.5, Unit = "cup" },
                 new RecipeIngredient { RecipeId = 3, IngredientId = 3, Quantity = 1, Unit = "cup" },
-                new RecipeIngredient { RecipeId = 3, IngredientId = 7, Quantity = 1, Unit = "tsp" }
+                new RecipeIngredient { RecipeId = 3, IngredientId = 7, Quantity = 1, Unit = "tsp" },
+
+                // -----------------------
+                // 4. Strawberry Spinach Salad
+                // -----------------------
+                new RecipeIngredient { RecipeId = 4, IngredientId = 8, Quantity = 1, Unit = "cup" },  // Strawberries
+                new RecipeIngredient { RecipeId = 4, IngredientId = 9, Quantity = 1, Unit = "cup" },  // Spinach
+
+                // -----------------------
+                // 5. Homemade Lemonade
+                // -----------------------
+                new RecipeIngredient { RecipeId = 5, IngredientId = 10, Quantity = 3, Unit = "pcs" }, // Lemons
+                new RecipeIngredient { RecipeId = 5, IngredientId = 2, Quantity = 0.5, Unit = "cup" },
+
+                // -----------------------
+                // 6. Grilled Chicken Sandwich
+                // -----------------------
+                new RecipeIngredient { RecipeId = 6, IngredientId = 11, Quantity = 1, Unit = "pcs" }, // Chicken Breast
+                new RecipeIngredient { RecipeId = 6, IngredientId = 12, Quantity = 1, Unit = "roll" },// Bread Rolls
+                new RecipeIngredient { RecipeId = 6, IngredientId = 4, Quantity = 1, Unit = "tbsp" }, // Butter
+
+                // -----------------------
+                // 7. Cinnamon Sugar Cookies
+                // -----------------------
+                new RecipeIngredient { RecipeId = 7, IngredientId = 1, Quantity = 2, Unit = "cups" },
+                new RecipeIngredient { RecipeId = 7, IngredientId = 2, Quantity = 1, Unit = "cup" },
+                new RecipeIngredient { RecipeId = 7, IngredientId = 4, Quantity = 0.5, Unit = "cup" },
+                new RecipeIngredient { RecipeId = 7, IngredientId = 7, Quantity = 1, Unit = "tsp" },
+                new RecipeIngredient { RecipeId = 7, IngredientId = 3, Quantity = 2, Unit = "pcs" },
+
+                // -----------------------
+                // 8. Roast Turkey
+                // -----------------------
+                new RecipeIngredient { RecipeId = 8, IngredientId = 11, Quantity = 2, Unit = "lbs" }, // Chicken Breast (no turkey available)
+                new RecipeIngredient { RecipeId = 8, IngredientId = 4, Quantity = 4, Unit = "tbsp" },
+
+                // -----------------------
+                // 9. Banana Bread
+                // -----------------------
+                new RecipeIngredient { RecipeId = 9, IngredientId = 14, Quantity = 3, Unit = "pcs" },
+                new RecipeIngredient { RecipeId = 9, IngredientId = 1, Quantity = 2, Unit = "cups" },
+                new RecipeIngredient { RecipeId = 9, IngredientId = 2, Quantity = 1, Unit = "cup" },
+                new RecipeIngredient { RecipeId = 9, IngredientId = 3, Quantity = 2, Unit = "pcs" },
+
+                // -----------------------
+                // 10. Vegetable Stir Fry
+                // -----------------------
+                new RecipeIngredient { RecipeId = 10, IngredientId = 16, Quantity = 2, Unit = "cups" }, // Vegetables
+                new RecipeIngredient { RecipeId = 10, IngredientId = 17, Quantity = 1, Unit = "tbsp" }, // Olive Oil
+                new RecipeIngredient { RecipeId = 10, IngredientId = 18, Quantity = 2, Unit = "tbsp" }  // Soy Sauce
             );
         }
     }

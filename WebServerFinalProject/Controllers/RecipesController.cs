@@ -14,12 +14,25 @@ namespace WebServerFinalProject.Controllers
             _dbContext = dbContext;
         }
 
+        public async Task<ActionResult> submitForm(FormData formData)
+        {
+            return RedirectToAction("Index", new { q = formData.title });
+        }
         public async Task<ActionResult<List<Recipe>>> Index(string? q, string? difficulty)
         {
             if (!q.IsNullOrEmpty())
             {
-                var recipes = _dbContext.Recipes.Where(n => (n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)) && n.Difficulty.Equals(difficulty)).ToList();
-                return View(recipes);
+                if(difficulty.IsNullOrEmpty())
+                {
+                    var recipes = _dbContext.Recipes.Where(n => n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)).ToList();
+                    return View(recipes);
+                }
+                else
+                {
+                    var recipes = _dbContext.Recipes.Where(n => (n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)) && n.Difficulty.Equals(difficulty)).ToList();
+                    return View(recipes);
+                
+                }
             }
             else
             {

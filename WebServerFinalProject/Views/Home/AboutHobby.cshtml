@@ -1,3 +1,250 @@
-@{ ViewData["Title"] = "Baking Tips"; }
-<h1>Tips and Tricks</h1>
-<p>Basics, tips, and a small substitutions table will go here.</p>
+@{
+    ViewData["Title"] = "Baking Tips & Substitutions";
+}
+
+<section class="tips-page container py-4">
+    <div class="text-center mb-4">
+        <h1 class="display-6 fw-normal mb-2">
+            Baking Tips &amp; Handy Substitutions
+        </h1>
+        <p class="tips-subtitle">
+            Simple tricks and quick swaps to help your bakes turn out cozy, even when your pantry doesn’t go as planned.
+        </p>
+    </div>
+
+    <!-- Quick Tips Section -->
+    <section class="tips-section mb-5">
+        <h2>Quick Baking Tips</h2>
+        <p class="tips-helper-text">
+            Use these small adjustments to improve texture, flavor, and consistency in your favorite recipes.
+        </p>
+
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <div class="tip-card">
+                    <h3>Room-Temperature Ingredients</h3>
+                    <p>
+                        Bring eggs, butter, and dairy to room temperature before mixing. This helps ingredients combine
+                        more evenly and creates a smoother batter.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="tip-card">
+                    <h3>Measure Flour Correctly</h3>
+                    <p>
+                        Spoon flour into your measuring cup and level it with a knife instead of scooping directly
+                        from the bag. This prevents dense, dry baked goods.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="tip-card">
+                    <h3>Don’t Overmix</h3>
+                    <p>
+                        Once you add flour, mix just until combined. Overmixing can develop too much gluten,
+                        leading to tough cakes and muffins.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="tip-card">
+                    <h3>Rotate Your Pans</h3>
+                    <p>
+                        Ovens often have hot spots. Rotating your pans halfway through baking can help everything
+                        bake more evenly and brown consistently.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="tip-card">
+                    <h3>Check Doneness Gently</h3>
+                    <p>
+                        Use a toothpick or cake tester in the center. If it comes out with a few moist crumbs,
+                        it’s done. Waiting until it’s completely dry can lead to overbaking.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="tip-card">
+                    <h3>Let Baked Goods Cool</h3>
+                    <p>
+                        Allow items to cool in the pan for a few minutes, then move to a cooling rack. This helps
+                        set the structure without trapping too much steam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Substitutions Section -->
+    <section class="tips-section">
+        <h2>Common Baking Substitutions</h2>
+        <p class="tips-helper-text">
+            Out of an ingredient? Try one of these simpler swaps. 
+            Results may vary slightly, but they’re helpful in a pinch!
+        </p>
+
+        <div class="substitutions-wrapper">
+            <table class="substitutions-table">
+                <thead>
+                    <tr>
+                        <th scope="col">If You’re Out Of</th>
+                        <th scope="col">Use This Instead</th>
+                        <th scope="col">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Egg (1 large)</td>
+                        <td>1/4 cup unsweetened applesauce</td>
+                        <td>Best in cakes, muffins, and quick breads. Adds a bit of extra moisture.</td>
+                    </tr>
+                    <tr>
+                        <td>Buttermilk (1 cup)</td>
+                        <td>1 cup milk + 1 tbsp lemon juice or vinegar</td>
+                        <td>Stir and let sit for 5–10 minutes until slightly thickened.</td>
+                    </tr>
+                    <tr>
+                        <td>Brown Sugar</td>
+                        <td>1 cup granulated sugar + 1 tbsp molasses</td>
+                        <td>Mix together until evenly combined. Light brown sugar flavor.</td>
+                    </tr>
+                    <tr>
+                        <td>Unsalted Butter (1 cup)</td>
+                        <td>1 cup vegetable oil</td>
+                        <td>Works in many cakes and muffins. Texture may be slightly more tender.</td>
+                    </tr>
+                    <tr>
+                        <td>Sour Cream (1 cup)</td>
+                        <td>1 cup plain Greek yogurt</td>
+                        <td>Similar tang and creaminess. Great in cakes, cupcakes, and dips.</td>
+                    </tr>
+                    <tr>
+                        <td>Cake Flour (1 cup)</td>
+                        <td>1 cup all-purpose flour – 2 tbsp + 2 tbsp cornstarch</td>
+                        <td>Sift together for a lighter texture closer to cake flour.</td>
+                    </tr>
+                    <tr>
+                        <td>Cocoa Powder (unsweetened)</td>
+                        <td>For 3 tbsp cocoa, use 1 oz melted unsweetened baking chocolate</td>
+                        <td>Reduce fat in the recipe by 1 tbsp to balance the added cocoa butter.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</section>
+
+<style>
+    .tips-subtitle {
+        font-size: 18px;
+        line-height: 1.6;
+        color: var(--cozy-body);
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .tips-section {
+        margin-bottom: 3rem;
+    }
+
+        .tips-section h2 {
+            font-size: 26px;
+            color: var(--cozy-ink);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .tips-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--cozy-body);
+        }
+
+    .tips-helper-text {
+        font-size: 17px;
+        color: var(--cozy-muted);
+        margin-bottom: 1.25rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Tip cards */
+    .tip-card {
+        background: #fffdf8;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        height: 100%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+        .tip-card h3 {
+            font-size: 20px;
+            margin-bottom: 0.5rem;
+            color: var(--cozy-ink);
+        }
+
+        .tip-card p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--cozy-body);
+        }
+
+    /* Substitutions table */
+    .substitutions-wrapper {
+        background: #FEF0F4;
+        border-radius: 1rem;
+        padding: 1.75rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .substitutions-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 16px;
+    }
+
+        .substitutions-table thead tr {
+            background-color: #fff9f2;
+        }
+
+        .substitutions-table th,
+        .substitutions-table td {
+            padding: 0.85rem 0.9rem;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .substitutions-table th {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--cozy-ink);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .substitutions-table tbody tr:nth-child(odd) {
+            background-color: #fffdf8;
+        }
+
+        .substitutions-table tbody tr:nth-child(even) {
+            background-color: #fefcf7;
+        }
+
+        .substitutions-table tbody tr:hover {
+            background-color: #fde8d1;
+        }
+
+        .substitutions-table td:first-child {
+            font-weight: 600;
+            color: var(--cozy-ink);
+        }
+</style>

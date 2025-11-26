@@ -267,3 +267,23 @@ main {
         color: white;
         border-color: #e27a92;
     }
+
+
+/* Feature + recipe cards hover nicely */
+.feature-card,
+.recipe-card {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    border-radius: 1.25rem;
+}
+
+.feature-card:hover,
+.recipe-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* Feature icons slightly larger and round */
+.feature-img {
+    width: 52px;
+    height: 52px;
+}

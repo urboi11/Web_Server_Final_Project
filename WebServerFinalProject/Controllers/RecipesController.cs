@@ -22,7 +22,7 @@ namespace WebServerFinalProject.Controllers
         {
             if (!q.IsNullOrEmpty())
             {
-                if(difficulty.IsNullOrEmpty())
+                if (difficulty.IsNullOrEmpty())
                 {
                     var recipes = _dbContext.Recipes.Where(n => n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)).ToList();
                     return View(recipes);
@@ -31,7 +31,7 @@ namespace WebServerFinalProject.Controllers
                 {
                     var recipes = _dbContext.Recipes.Where(n => (n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)) && n.Difficulty.Equals(difficulty)).ToList();
                     return View(recipes);
-                
+
                 }
             }
             else
@@ -57,14 +57,23 @@ namespace WebServerFinalProject.Controllers
         }
 
         // /Recipes/Type
+        // /Recipes/Type
         public IActionResult Type(string? type)
         {
-            if(!type.IsNullOrEmpty())
+            ViewBag.SelectedType = type;
+
+            if (!type.IsNullOrEmpty())
             {
-                var typedRecipes = _dbContext.Recipes.Where(r => r.Type == type).ToList();
+                var typedRecipes = _dbContext.Recipes
+                    .Where(r => r.Type == type)
+                    .ToList();
+
                 return View(typedRecipes);
             }
-            return View();
+
+            // When no type is selected yet, just return an empty list
+            return View(new List<Recipe>());
         }
+
     }
 }

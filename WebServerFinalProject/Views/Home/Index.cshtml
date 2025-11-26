@@ -73,7 +73,7 @@
 <section class="container pb-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="h4 m-0">Featured Recipes</h2>
-        <a class="btn btn-outline-teal btn-sm" asp-controller="Recipes" asp-action="Index">View All</a>
+        <a class="btn btn-teal" asp-controller="Recipes" asp-action="Index">View All</a>
     </div>
 
     @if (Model != null && Model.Any())
@@ -95,6 +95,11 @@
                                         @recipe.Difficulty
                                     </span>
                                 </p>
+
+                                <p class="card-text small text-body-secondary mb-1">
+                                    <strong>Type:</strong> @recipe.Type
+                                </p>
+
 
                                 <p class="card-text small text-body-secondary mb-1">
                                     <strong>Prep:</strong> @recipe.PrepMinutes min

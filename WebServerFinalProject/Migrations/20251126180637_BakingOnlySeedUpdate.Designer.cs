@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebServerFinalProject.Data;
 
@@ -11,9 +12,11 @@ using WebServerFinalProject.Data;
 namespace WebServerFinalProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251126180637_BakingOnlySeedUpdate")]
+    partial class BakingOnlySeedUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -219,7 +222,7 @@ namespace WebServerFinalProject.Migrations
                             ID = 1,
                             BakeMinutes = 30,
                             CategoryId = 3,
-                            Description = "Whisk together the batter, pour into a pan, and bake until a toothpick comes out clean.",
+                            Description = "A rich and moist chocolate cake.",
                             Difficulty = "Medium",
                             PrepMinutes = 15,
                             Title = "Chocolate Cake",
@@ -230,7 +233,7 @@ namespace WebServerFinalProject.Migrations
                             ID = 2,
                             BakeMinutes = 40,
                             CategoryId = 2,
-                            Description = "Fill a basic pie crust with spiced apples, add caramel, and bake until golden and bubbly.",
+                            Description = "Classic fall apple pie with a caramel twist.",
                             Difficulty = "Medium",
                             PrepMinutes = 20,
                             Title = "Caramel Apple Pie",
@@ -241,7 +244,7 @@ namespace WebServerFinalProject.Migrations
                             ID = 3,
                             BakeMinutes = 50,
                             CategoryId = 2,
-                            Description = "Stir a simple pumpkin batter together in one bowl and bake until the loaf is set in the center.",
+                            Description = "Soft and spiced pumpkin quick bread.",
                             Difficulty = "Easy",
                             PrepMinutes = 15,
                             Title = "Pumpkin Bread",
@@ -252,7 +255,7 @@ namespace WebServerFinalProject.Migrations
                             ID = 4,
                             BakeMinutes = 0,
                             CategoryId = 1,
-                            Description = "Layer bite-size cake pieces, sweet berries, and whipped cream into small serving cups.",
+                            Description = "Layered strawberries, cream, and cake in a cup.",
                             Difficulty = "Easy",
                             PrepMinutes = 15,
                             Title = "Strawberry Shortcake Cups",
@@ -263,29 +266,29 @@ namespace WebServerFinalProject.Migrations
                             ID = 5,
                             BakeMinutes = 25,
                             CategoryId = 4,
-                            Description = "Press a simple crust into a pan, pour on the lemon filling, and bake until just set.",
+                            Description = "Tangy lemon bars with a buttery shortbread crust.",
                             Difficulty = "Easy",
                             PrepMinutes = 15,
                             Title = "Lemon Bars",
-                            Type = "Dessert"
+                            Type = "Bars"
                         },
                         new
                         {
                             ID = 6,
                             BakeMinutes = 20,
                             CategoryId = 4,
-                            Description = "Mix a soft dough, roll it with cinnamon sugar, slice, and bake until fluffy and golden.",
+                            Description = "Soft cinnamon rolls with a sweet glaze.",
                             Difficulty = "Medium",
                             PrepMinutes = 25,
                             Title = "Cinnamon Rolls",
-                            Type = "Bread"
+                            Type = "Rolls"
                         },
                         new
                         {
                             ID = 7,
                             BakeMinutes = 12,
                             CategoryId = 2,
-                            Description = "Cream butter and sugar, roll the dough into balls, coat in cinnamon sugar, and bake.",
+                            Description = "Sweet and simple fall cookies.",
                             Difficulty = "Easy",
                             PrepMinutes = 15,
                             Title = "Cinnamon Sugar Cookies",
@@ -296,18 +299,18 @@ namespace WebServerFinalProject.Migrations
                             ID = 8,
                             BakeMinutes = 18,
                             CategoryId = 3,
-                            Description = "Let a simple yeast dough rise, shape into rolls, and bake until lightly browned.",
+                            Description = "Soft, buttery dinner rolls perfect for holidays.",
                             Difficulty = "Medium",
                             PrepMinutes = 20,
                             Title = "Holiday Dinner Rolls",
-                            Type = "Bread"
+                            Type = "Rolls"
                         },
                         new
                         {
                             ID = 9,
                             BakeMinutes = 50,
                             CategoryId = 5,
-                            Description = "Mash ripe bananas, stir in the batter, and bake until the loaf is browned and fragrant.",
+                            Description = "Moist banana bread with a tender crumb.",
                             Difficulty = "Easy",
                             PrepMinutes = 15,
                             Title = "Banana Bread",
@@ -318,11 +321,11 @@ namespace WebServerFinalProject.Migrations
                             ID = 10,
                             BakeMinutes = 0,
                             CategoryId = 3,
-                            Description = "Press crumbs into a tart pan, chill, then fill with a simple chocolate ganache and let it set.",
+                            Description = "No-bake chocolate tart with a graham cracker crust.",
                             Difficulty = "Hard",
                             PrepMinutes = 20,
                             Title = "Chocolate Ganache Tart",
-                            Type = "Dessert"
+                            Type = "Tart"
                         });
                 });
 

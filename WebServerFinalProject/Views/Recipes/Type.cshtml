@@ -2,9 +2,17 @@
 
 @{
     ViewData["Title"] = "Recipe Type";
-    var selectedType = ViewBag.SelectedType as string ?? "Dessert";
-}
+    var selectedType = ViewBag.SelectedType as string ?? "";
 
+    var typeOptions = new[]
+    {
+        "Cake",
+        "Pie",
+        "Bread",
+        "Cookies",
+        "Dessert"
+    };
+}
 
 <section class="container py-4">
     <div class="text-center mb-4">
@@ -14,20 +22,30 @@
         </p>
     </div>
 
-   <form asp-action="Type" asp-controller="Recipes" method="post" class="row justify-content-center mb-4">
-    <div class="col-12 col-md-6 col-lg-4">
-        <div class="input-group">
-            <select name="type" id="myDropdown" class="form-select">
-                    <option value="Dessert" selected="@(selectedType == "Dessert")">Dessert</option>
-                    <option value="Soup" selected="@(selectedType == "Soup")">Soup</option>
-            </select>
-            <button type="submit" class="btn btn-teal">
-                Search
-            </button>
-        </div>
-    </div>
-</form>
+    <form asp-action="Type"
+          asp-controller="Recipes"
+          method="post"
+          class="row justify-content-center mb-4">
 
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="input-group">
+                <select name="type" id="myDropdown" class="form-select">
+                    <option value="">Select a type...</option>
+
+                    @foreach (var type in typeOptions)
+                    {
+                        <option value="@type" selected="@(selectedType == type ? "selected" : null)">
+                            @type
+                        </option>
+                    }
+                </select>
+
+                <button type="submit" class="btn btn-teal">
+                    Search
+                </button>
+            </div>
+        </div>
+    </form>
 
     @if (Model != null && Model.Any())
     {

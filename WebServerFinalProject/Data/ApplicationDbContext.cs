@@ -5,7 +5,7 @@ namespace WebServerFinalProject.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        // DbSets for each model (table in your database)
+        // DbSets for each model
         public DbSet<Category> Categories { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
@@ -51,7 +51,7 @@ namespace WebServerFinalProject.Data
                 new Category { CategoryId = 5, Name = "Winter" }
             );
 
-            // Seed Ingredients
+            // Seed Ingredients (baking-only)
             modelBuilder.Entity<Ingredient>().HasData(
                 new Ingredient { IngredientId = 1, Name = "Flour" },
                 new Ingredient { IngredientId = 2, Name = "Sugar" },
@@ -61,106 +61,203 @@ namespace WebServerFinalProject.Data
                 new Ingredient { IngredientId = 6, Name = "Baking Powder" },
                 new Ingredient { IngredientId = 7, Name = "Cinnamon" },
                 new Ingredient { IngredientId = 8, Name = "Strawberries" },
-                new Ingredient { IngredientId = 9, Name = "Spinach" },
+                new Ingredient { IngredientId = 9, Name = "Whipped Cream" },
                 new Ingredient { IngredientId = 10, Name = "Lemons" },
-                new Ingredient { IngredientId = 11, Name = "Chicken Breast" },
-                new Ingredient { IngredientId = 12, Name = "Bread Rolls" },
-                new Ingredient { IngredientId = 13, Name = "Ground Beef" },
+                new Ingredient { IngredientId = 11, Name = "Yeast" },
+                new Ingredient { IngredientId = 12, Name = "Brown Sugar" },
+                new Ingredient { IngredientId = 13, Name = "Cream Cheese" },
                 new Ingredient { IngredientId = 14, Name = "Bananas" },
-                new Ingredient { IngredientId = 15, Name = "Milk" }
+                new Ingredient { IngredientId = 15, Name = "Milk" },
+                new Ingredient { IngredientId = 16, Name = "Chocolate Chips" },
+                new Ingredient { IngredientId = 17, Name = "Heavy Cream" },
+                new Ingredient { IngredientId = 18, Name = "Graham Cracker Crumbs" }
             );
 
             // Seed Recipes
             modelBuilder.Entity<Recipe>().HasData(
-                new Recipe { ID = 1, Title = "Chocolate Cake", Description = "A rich and moist chocolate cake.", Difficulty = "Medium", PrepMinutes = 15, BakeMinutes = 30, Type = "Dessert", CategoryId = 3 },
-                new Recipe { ID = 2, Title = "Apple Pie", Description = "Classic American apple pie.", Difficulty = "Medium", PrepMinutes = 20, BakeMinutes = 40, Type = "Dessert", CategoryId = 2 },
-                new Recipe { ID = 3, Title = "Pumpkin Soup", Description = "A hearty fall favorite.", Difficulty = "Easy", PrepMinutes = 10, BakeMinutes = 25, Type = "Soup", CategoryId = 1 },
-                new Recipe { ID = 4, Title = "Strawberry Spinach Salad", Description = "A fresh spring salad with strawberries.", Difficulty = "Easy", PrepMinutes = 10, BakeMinutes = 0, Type = "Salad", CategoryId = 4 },
-                new Recipe { ID = 5, Title = "Homemade Lemonade", Description = "Refreshing summer lemonade.", Difficulty = "Easy", PrepMinutes = 5, BakeMinutes = 0, Type = "Beverage", CategoryId = 5 },
-                new Recipe { ID = 6, Title = "Grilled Chicken Sandwich", Description = "Juicy chicken sandwich perfect for summer.", Difficulty = "Medium", PrepMinutes = 15, BakeMinutes = 10, Type = "Main", CategoryId = 6 },
-                new Recipe { ID = 7, Title = "Cinnamon Sugar Cookies", Description = "Sweet and simple fall cookies.", Difficulty = "Easy", PrepMinutes = 15, BakeMinutes = 12, Type = "Cookies", CategoryId = 7 },
-                new Recipe { ID = 8, Title = "Roast Turkey", Description = "Traditional holiday roast turkey.", Difficulty = "Hard", PrepMinutes = 30, BakeMinutes = 180, Type = "Main", CategoryId = 8 },
-                new Recipe { ID = 9, Title = "Banana Bread", Description = "Moist winter banana bread.", Difficulty = "Easy", PrepMinutes = 15, BakeMinutes = 50, Type = "Bread", CategoryId = 9 },
-                new Recipe { ID = 10, Title = "Vegetable Stir Fry", Description = "Quick and healthy vegetable stir fry.", Difficulty = "Easy", PrepMinutes = 10, BakeMinutes = 15, Type = "Main", CategoryId = 10 }
+                new Recipe
+                {
+                    ID = 1,
+                    Title = "Chocolate Cake",
+                    Description = "Whisk together the batter, pour into a pan, and bake until a toothpick comes out clean.",
+                    Difficulty = "Medium",
+                    PrepMinutes = 15,
+                    BakeMinutes = 30,
+                    Type = "Cake",
+                    CategoryId = 3 // Holiday
+                },
+                new Recipe
+                {
+                    ID = 2,
+                    Title = "Caramel Apple Pie",
+                    Description = "Fill a basic pie crust with spiced apples, add caramel, and bake until golden and bubbly.",
+                    Difficulty = "Medium",
+                    PrepMinutes = 20,
+                    BakeMinutes = 40,
+                    Type = "Pie",
+                    CategoryId = 2 // Fall
+                },
+                new Recipe
+                {
+                    ID = 3,
+                    Title = "Pumpkin Bread",
+                    Description = "Stir a simple pumpkin batter together in one bowl and bake until the loaf is set in the center.",
+                    Difficulty = "Easy",
+                    PrepMinutes = 15,
+                    BakeMinutes = 50,
+                    Type = "Bread",
+                    CategoryId = 2 // Fall
+                },
+                new Recipe
+                {
+                    ID = 4,
+                    Title = "Strawberry Shortcake Cups",
+                    Description = "Layer bite-size cake pieces, sweet berries, and whipped cream into small serving cups.",
+                    Difficulty = "Easy",
+                    PrepMinutes = 15,
+                    BakeMinutes = 0,
+                    Type = "Dessert",
+                    CategoryId = 1 // Spring
+                },
+                new Recipe
+                {
+                    ID = 5,
+                    Title = "Lemon Bars",
+                    Description = "Press a simple crust into a pan, pour on the lemon filling, and bake until just set.",
+                    Difficulty = "Easy",
+                    PrepMinutes = 15,
+                    BakeMinutes = 25,
+                    Type = "Dessert",
+                    CategoryId = 4 // Summer
+                },
+                new Recipe
+                {
+                    ID = 6,
+                    Title = "Cinnamon Rolls",
+                    Description = "Mix a soft dough, roll it with cinnamon sugar, slice, and bake until fluffy and golden.",
+                    Difficulty = "Medium",
+                    PrepMinutes = 25,
+                    BakeMinutes = 20,
+                    Type = "Bread",
+                    CategoryId = 4 // Summer
+                },
+                new Recipe
+                {
+                    ID = 7,
+                    Title = "Cinnamon Sugar Cookies",
+                    Description = "Cream butter and sugar, roll the dough into balls, coat in cinnamon sugar, and bake.",
+                    Difficulty = "Easy",
+                    PrepMinutes = 15,
+                    BakeMinutes = 12,
+                    Type = "Cookies",
+                    CategoryId = 2 // Fall
+                },
+                new Recipe
+                {
+                    ID = 8,
+                    Title = "Holiday Dinner Rolls",
+                    Description = "Let a simple yeast dough rise, shape into rolls, and bake until lightly browned.",
+                    Difficulty = "Medium",
+                    PrepMinutes = 20,
+                    BakeMinutes = 18,
+                    Type = "Bread",
+                    CategoryId = 3 // Holiday
+                },
+                new Recipe
+                {
+                    ID = 9,
+                    Title = "Banana Bread",
+                    Description = "Mash ripe bananas, stir in the batter, and bake until the loaf is browned and fragrant.",
+                    Difficulty = "Easy",
+                    PrepMinutes = 15,
+                    BakeMinutes = 50,
+                    Type = "Bread",
+                    CategoryId = 5 // Winter
+                },
+                new Recipe
+                {
+                    ID = 10,
+                    Title = "Chocolate Ganache Tart",
+                    Description = "Press crumbs into a tart pan, chill, then fill with a simple chocolate ganache and let it set.",
+                    Difficulty = "Hard",
+                    PrepMinutes = 20,
+                    BakeMinutes = 0,
+                    Type = "Dessert",
+                    CategoryId = 3 // Holiday
+                }
             );
 
-            // Seed RecipeIngredients (join table)
+
+            // Seed RecipeIngredients (join table, all baking-focused)
             modelBuilder.Entity<RecipeIngredient>().HasData(
-                
-                // -----------------------
+
                 // 1. Chocolate Cake
-                // -----------------------
-                new RecipeIngredient { RecipeId = 1, IngredientId = 1, Quantity = 2, Unit = "cups" },
-                new RecipeIngredient { RecipeId = 1, IngredientId = 2, Quantity = 1.5, Unit = "cups" },
-                new RecipeIngredient { RecipeId = 1, IngredientId = 3, Quantity = 3, Unit = "eggs" },
-                new RecipeIngredient { RecipeId = 1, IngredientId = 4, Quantity = 0.5, Unit = "cups" },
+                new RecipeIngredient { RecipeId = 1, IngredientId = 1, Quantity = 2, Unit = "cups" },   // Flour
+                new RecipeIngredient { RecipeId = 1, IngredientId = 2, Quantity = 1.5, Unit = "cups" }, // Sugar
+                new RecipeIngredient { RecipeId = 1, IngredientId = 3, Quantity = 3, Unit = "pcs" },    // Eggs
+                new RecipeIngredient { RecipeId = 1, IngredientId = 4, Quantity = 0.5, Unit = "cups" }, // Butter
+                new RecipeIngredient { RecipeId = 1, IngredientId = 5, Quantity = 2, Unit = "tsp" },    // Vanilla
 
-                // -----------------------
-                // 2. Apple Pie
-                // -----------------------
-                new RecipeIngredient { RecipeId = 2, IngredientId = 1, Quantity = 3, Unit = "cups" },
-                new RecipeIngredient { RecipeId = 2, IngredientId = 2, Quantity = 1, Unit = "cup" },
-                new RecipeIngredient { RecipeId = 2, IngredientId = 3, Quantity = 2, Unit = "eggs" },
-                new RecipeIngredient { RecipeId = 2, IngredientId = 4, Quantity = 0.75, Unit = "cups" },
+                // 2. Caramel Apple Pie
+                new RecipeIngredient { RecipeId = 2, IngredientId = 1, Quantity = 3, Unit = "cups" },   // Flour
+                new RecipeIngredient { RecipeId = 2, IngredientId = 2, Quantity = 1, Unit = "cup" },    // Sugar
+                new RecipeIngredient { RecipeId = 2, IngredientId = 12, Quantity = 0.5, Unit = "cup" }, // Brown Sugar
+                new RecipeIngredient { RecipeId = 2, IngredientId = 4, Quantity = 0.75, Unit = "cups" },// Butter
+                new RecipeIngredient { RecipeId = 2, IngredientId = 7, Quantity = 1, Unit = "tsp" },    // Cinnamon
 
-                // -----------------------
-                // 3. Pumpkin Soup
-                // -----------------------
-                new RecipeIngredient { RecipeId = 3, IngredientId = 1, Quantity = 1, Unit = "cup" },
-                new RecipeIngredient { RecipeId = 3, IngredientId = 2, Quantity = 0.5, Unit = "cup" },
-                new RecipeIngredient { RecipeId = 3, IngredientId = 3, Quantity = 1, Unit = "cup" },
-                new RecipeIngredient { RecipeId = 3, IngredientId = 7, Quantity = 1, Unit = "tsp" },
+                // 3. Pumpkin Bread
+                new RecipeIngredient { RecipeId = 3, IngredientId = 1, Quantity = 2, Unit = "cups" },   // Flour
+                new RecipeIngredient { RecipeId = 3, IngredientId = 2, Quantity = 1, Unit = "cup" },    // Sugar
+                new RecipeIngredient { RecipeId = 3, IngredientId = 3, Quantity = 2, Unit = "pcs" },    // Eggs
+                new RecipeIngredient { RecipeId = 3, IngredientId = 7, Quantity = 2, Unit = "tsp" },    // Cinnamon
+                new RecipeIngredient { RecipeId = 3, IngredientId = 6, Quantity = 2, Unit = "tsp" },    // Baking Powder
 
-                // -----------------------
-                // 4. Strawberry Spinach Salad
-                // -----------------------
-                new RecipeIngredient { RecipeId = 4, IngredientId = 8, Quantity = 1, Unit = "cup" },  // Strawberries
-                new RecipeIngredient { RecipeId = 4, IngredientId = 9, Quantity = 1, Unit = "cup" },  // Spinach
+                // 4. Strawberry Shortcake Cups
+                new RecipeIngredient { RecipeId = 4, IngredientId = 8, Quantity = 1.5, Unit = "cups" }, // Strawberries
+                new RecipeIngredient { RecipeId = 4, IngredientId = 9, Quantity = 1, Unit = "cup" },    // Whipped Cream
+                new RecipeIngredient { RecipeId = 4, IngredientId = 1, Quantity = 1, Unit = "cup" },    // Flour
+                new RecipeIngredient { RecipeId = 4, IngredientId = 2, Quantity = 0.5, Unit = "cup" },  // Sugar
 
-                // -----------------------
-                // 5. Homemade Lemonade
-                // -----------------------
-                new RecipeIngredient { RecipeId = 5, IngredientId = 10, Quantity = 3, Unit = "pcs" }, // Lemons
-                new RecipeIngredient { RecipeId = 5, IngredientId = 2, Quantity = 0.5, Unit = "cup" },
+                // 5. Lemon Bars
+                new RecipeIngredient { RecipeId = 5, IngredientId = 10, Quantity = 3, Unit = "pcs" },   // Lemons
+                new RecipeIngredient { RecipeId = 5, IngredientId = 2, Quantity = 1, Unit = "cup" },    // Sugar
+                new RecipeIngredient { RecipeId = 5, IngredientId = 1, Quantity = 1.5, Unit = "cups" }, // Flour
+                new RecipeIngredient { RecipeId = 5, IngredientId = 4, Quantity = 0.5, Unit = "cup" },  // Butter
 
-                // -----------------------
-                // 6. Grilled Chicken Sandwich
-                // -----------------------
-                new RecipeIngredient { RecipeId = 6, IngredientId = 11, Quantity = 1, Unit = "pcs" }, // Chicken Breast
-                new RecipeIngredient { RecipeId = 6, IngredientId = 12, Quantity = 1, Unit = "roll" },// Bread Rolls
-                new RecipeIngredient { RecipeId = 6, IngredientId = 4, Quantity = 1, Unit = "tbsp" }, // Butter
+                // 6. Cinnamon Rolls
+                new RecipeIngredient { RecipeId = 6, IngredientId = 1, Quantity = 3, Unit = "cups" },   // Flour
+                new RecipeIngredient { RecipeId = 6, IngredientId = 11, Quantity = 2, Unit = "tsp" },   // Yeast
+                new RecipeIngredient { RecipeId = 6, IngredientId = 12, Quantity = 0.5, Unit = "cup" }, // Brown Sugar
+                new RecipeIngredient { RecipeId = 6, IngredientId = 7, Quantity = 2, Unit = "tsp" },    // Cinnamon
+                new RecipeIngredient { RecipeId = 6, IngredientId = 15, Quantity = 1, Unit = "cup" },   // Milk
 
-                // -----------------------
                 // 7. Cinnamon Sugar Cookies
-                // -----------------------
-                new RecipeIngredient { RecipeId = 7, IngredientId = 1, Quantity = 2, Unit = "cups" },
-                new RecipeIngredient { RecipeId = 7, IngredientId = 2, Quantity = 1, Unit = "cup" },
-                new RecipeIngredient { RecipeId = 7, IngredientId = 4, Quantity = 0.5, Unit = "cup" },
-                new RecipeIngredient { RecipeId = 7, IngredientId = 7, Quantity = 1, Unit = "tsp" },
-                new RecipeIngredient { RecipeId = 7, IngredientId = 3, Quantity = 2, Unit = "pcs" },
+                new RecipeIngredient { RecipeId = 7, IngredientId = 1, Quantity = 2, Unit = "cups" },   // Flour
+                new RecipeIngredient { RecipeId = 7, IngredientId = 2, Quantity = 1, Unit = "cup" },    // Sugar
+                new RecipeIngredient { RecipeId = 7, IngredientId = 4, Quantity = 0.5, Unit = "cup" },  // Butter
+                new RecipeIngredient { RecipeId = 7, IngredientId = 7, Quantity = 1, Unit = "tsp" },    // Cinnamon
+                new RecipeIngredient { RecipeId = 7, IngredientId = 3, Quantity = 2, Unit = "pcs" },    // Eggs
 
-                // -----------------------
-                // 8. Roast Turkey
-                // -----------------------
-                new RecipeIngredient { RecipeId = 8, IngredientId = 11, Quantity = 2, Unit = "lbs" }, // Chicken Breast (no turkey available)
-                new RecipeIngredient { RecipeId = 8, IngredientId = 4, Quantity = 4, Unit = "tbsp" },
+                // 8. Holiday Dinner Rolls
+                new RecipeIngredient { RecipeId = 8, IngredientId = 1, Quantity = 3, Unit = "cups" },   // Flour
+                new RecipeIngredient { RecipeId = 8, IngredientId = 11, Quantity = 2, Unit = "tsp" },   // Yeast
+                new RecipeIngredient { RecipeId = 8, IngredientId = 2, Quantity = 0.25, Unit = "cup" }, // Sugar
+                new RecipeIngredient { RecipeId = 8, IngredientId = 4, Quantity = 0.25, Unit = "cup" }, // Butter
+                new RecipeIngredient { RecipeId = 8, IngredientId = 15, Quantity = 1, Unit = "cup" },   // Milk
 
-                // -----------------------
                 // 9. Banana Bread
-                // -----------------------
-                new RecipeIngredient { RecipeId = 9, IngredientId = 14, Quantity = 3, Unit = "pcs" },
-                new RecipeIngredient { RecipeId = 9, IngredientId = 1, Quantity = 2, Unit = "cups" },
-                new RecipeIngredient { RecipeId = 9, IngredientId = 2, Quantity = 1, Unit = "cup" },
-                new RecipeIngredient { RecipeId = 9, IngredientId = 3, Quantity = 2, Unit = "pcs" },
+                new RecipeIngredient { RecipeId = 9, IngredientId = 14, Quantity = 3, Unit = "pcs" },   // Bananas
+                new RecipeIngredient { RecipeId = 9, IngredientId = 1, Quantity = 2, Unit = "cups" },   // Flour
+                new RecipeIngredient { RecipeId = 9, IngredientId = 2, Quantity = 1, Unit = "cup" },    // Sugar
+                new RecipeIngredient { RecipeId = 9, IngredientId = 3, Quantity = 2, Unit = "pcs" },    // Eggs
+                new RecipeIngredient { RecipeId = 9, IngredientId = 6, Quantity = 1, Unit = "tsp" },    // Baking Powder
 
-                // -----------------------
-                // 10. Vegetable Stir Fry
-                // -----------------------
-                new RecipeIngredient { RecipeId = 10, IngredientId = 16, Quantity = 2, Unit = "cups" }, // Vegetables
-                new RecipeIngredient { RecipeId = 10, IngredientId = 17, Quantity = 1, Unit = "tbsp" }, // Olive Oil
-                new RecipeIngredient { RecipeId = 10, IngredientId = 18, Quantity = 2, Unit = "tbsp" }  // Soy Sauce
+                // 10. Chocolate Ganache Tart
+                new RecipeIngredient { RecipeId = 10, IngredientId = 16, Quantity = 2, Unit = "cups" }, // Chocolate Chips
+                new RecipeIngredient { RecipeId = 10, IngredientId = 17, Quantity = 1, Unit = "cup" },  // Heavy Cream
+                new RecipeIngredient { RecipeId = 10, IngredientId = 18, Quantity = 1.5, Unit = "cups" } // Graham Cracker Crumbs
             );
-        
+
         }
     }
 }

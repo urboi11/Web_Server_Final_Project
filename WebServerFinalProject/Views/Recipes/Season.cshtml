@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Seasonal Recipes";
-    var selectedSeason = ViewBag.SelectedSeason as string ?? "Spring";
+    var selectedSeason = ViewBag.SelectedSeason as string ?? "";
 }
 
 <section class="container py-4">
@@ -21,11 +21,11 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="input-group">
                 <select name="category" id="myDropdown" class="form-select">
-
                     <option value="Spring" selected="@(selectedSeason == "Spring" ? "selected" : null)">Spring</option>
+                    <option value="Summer" selected="@(selectedSeason == "Summer" ? "selected" : null)">Summer</option>
                     <option value="Fall" selected="@(selectedSeason == "Fall" ? "selected" : null)">Fall</option>
                     <option value="Holiday" selected="@(selectedSeason == "Holiday" ? "selected" : null)">Holiday</option>
-
+                    <option value="Winter" selected="@(selectedSeason == "Winter" ? "selected" : null)">Winter</option>
                 </select>
 
                 <button type="submit" class="btn btn-teal">
@@ -43,9 +43,26 @@
             {
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="feature-card card h-100">
+
+                        <!-- Optional season strip, left blank on purpose -->
+                        <div class="season-card-image"></div>
+
                         <div class="card-body">
                             <h2 class="h5 card-title mb-2">@recipe.Title</h2>
-                            <p class="card-text mb-2">@recipe.Description</p>
+                            <p class="card-text mb-2">
+                                @recipe.Description
+                            </p>
+
+                            <p class="card-text small mb-2 text-end">
+                                <span class="difficulty-badge @recipe.Difficulty.ToLower()">
+                                    @recipe.Difficulty
+                                </span>
+                            </p>
+
+                            <p class="card-text small text-body-secondary mb-1">
+                                <strong>Type:</strong> @recipe.Type
+                            </p>
+
                             <p class="card-text small text-body-secondary mb-0">
                                 <strong>Prep:</strong> @recipe.PrepMinutes min
                                 <span class="mx-1">•</span>
@@ -63,4 +80,11 @@
             No recipes found for this season. Try choosing another.
         </p>
     }
+    else
+    {
+        <p class="text-center text-body-secondary mt-3">
+            Please select a season to view recipes.
+        </p>
+    }
+
 </section>

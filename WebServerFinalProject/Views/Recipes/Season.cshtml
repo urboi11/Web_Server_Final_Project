@@ -1,22 +1,94 @@
 @model List<Recipe>
-@{ ViewData["Title"] = "Seasonal"; }
-<form asp-action="Season" asp-controller="Recipes" method="post">
-    <div style="text-align: center;">
-        <select name="category" id="myDropdown">
-            <option value="Spring">Spring</option>
-            <option value="Fall">Fall</option>
-            <option value="Holiday">Holiday</option>
-        </select>
-        <button type="submit">Search</button>
-    </div>
-</form>
-@if(Model != null){
-  @foreach(Recipe recipe in Model){
-    <div class="SearchResults">
-      <p><strong>Recipe: </strong>@recipe.Title</p>
-      <p><strong>Description: </strong>@recipe.Description</p>
-      <p><strong>Prep Minutes: </strong>@recipe.PrepMinutes</p>
-      <p><strong>Bake Minutes: </strong>@recipe.BakeMinutes</p>
-    </div>
-  }
+
+@{
+    ViewData["Title"] = "Seasonal Recipes";
+    var selectedSeason = ViewBag.SelectedSeason as string ?? "";
 }
+
+<section class="container py-4">
+    <div class="text-center mb-4">
+        <h1 class="display-6 fw-normal mb-2">Browse by Season</h1>
+        <p class="text-body-secondary small mb-0">
+            Choose a season to explore themed CozyBakes recipes.
+        </p>
+    </div>
+
+    <form asp-action="Season"
+          asp-controller="Recipes"
+          method="post"
+          class="row justify-content-center mb-4">
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="input-group">
+                <select name="category" id="myDropdown" class="form-select">
+                    <option value="Spring" selected="@(selectedSeason == "Spring" ? "selected" : null)">Spring</option>
+                    <option value="Summer" selected="@(selectedSeason == "Summer" ? "selected" : null)">Summer</option>
+                    <option value="Fall" selected="@(selectedSeason == "Fall" ? "selected" : null)">Fall</option>
+                    <option value="Holiday" selected="@(selectedSeason == "Holiday" ? "selected" : null)">Holiday</option>
+                    <option value="Winter" selected="@(selectedSeason == "Winter" ? "selected" : null)">Winter</option>
+                </select>
+
+                <button type="submit" class="btn btn-teal">
+                    Search
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row g-4">
+            @foreach (var recipe in Model)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="feature-card card h-100">
+
+                        <div class="card-body">
+                            <h2 class="h5 card-title mb-2">@recipe.Title</h2>
+                            <p class="card-text mb-2">
+                                @recipe.Description
+                            </p>
+
+                            <p class="card-text small mb-2 text-end">
+                                <span class="difficulty-badge @recipe.Difficulty.ToLower()">
+                                    @recipe.Difficulty
+                                </span>
+                            </p>
+
+                            <p class="card-text small text-body-secondary mb-1">
+                                <strong>Type:</strong> @recipe.Type
+                            </p>
+
+                            <p class="card-text small text-body-secondary mb-0">
+                                <strong>Prep:</strong> @recipe.PrepMinutes min
+                                <span class="mx-1">•</span>
+                                <strong>Bake:</strong> @recipe.BakeMinutes min
+                            </p>
+                            <a asp-action="Details"
+                               asp-controller="Recipes"
+                               asp-route-id="@recipe.ID"
+                               class="btn btn-teal btn-sm w-100 mt-2">
+                                View Recipe
+                            </a>
+
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(selectedSeason))
+    {
+        <p class="text-center text-body-secondary mt-3">
+            No recipes found for this season. Try choosing another.
+        </p>
+    }
+    else
+    {
+        <p class="text-center text-body-secondary mt-3">
+            Please select a season to view recipes.
+        </p>
+    }
+
+</section>

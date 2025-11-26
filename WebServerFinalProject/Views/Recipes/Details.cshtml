@@ -1,0 +1,88 @@
+@model Recipe
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+
+            <!-- Back link -->
+            <div class="mb-3">
+                <a asp-action="Index"
+                   asp-controller="Recipes"
+                   class="btn btn-teal btn-sm">
+                   Back to All Recipes
+                </a>
+            </div>
+
+            <article class="recipe-details-card card shadow-sm border-0">
+
+                <!-- Header bar -->
+                <div class="details-header p-4 rounded-top text-center">
+
+                    <h1 class="h4 mb-3">@Model.Title</h1>
+
+                    <div class="d-flex flex-column align-items-center gap-2 mb-3">
+                        <span class="difficulty-badge @Model.Difficulty.ToLower()">
+                            @Model.Difficulty
+                        </span>
+                    </div>
+
+                    <!-- Unified meta line (Type • Season • Prep • Bake) -->
+                    <p class="details-meta-line mb-0">
+                        <strong>Type:</strong> @Model.Type
+                        @if (Model.Category != null)
+                        {
+                            <span class="details-dot">•</span>
+                            <strong>Season:</strong>
+ 
+                            @Model.Category.Name
+                        }
+                        <span class="details-dot">•</span>
+                        <strong>Prep:</strong> @Model.PrepMinutes min
+                        <span class="details-dot">•</span>
+                        <strong>Bake:</strong> @Model.BakeMinutes min
+                    </p>
+
+                </div>
+
+                <!-- Body -->
+                <div class="card-body px-4 py-4">
+
+
+                    <div class="row">
+                        <!-- Ingredients -->
+                        <div class="col-12 col-md-5">
+                            <h2 class="h6 mb-3 border-bottom pb-1">Ingredients</h2>
+
+                            <ul class="ingredients-list">
+                                @foreach (var ri in Model.RecipeIngredients)
+                                {
+                                    <li>
+                                        <span class="ingredient-dot"></span>
+                                        @ri.Quantity @ri.Unit @ri.Ingredient.Name
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+
+                        <!-- Instructions -->
+                        <div class="col-12 col-md-7 mt-4 mt-md-0">
+                            <h2 class="h6 mb-3 border-bottom pb-1">Instructions</h2>
+
+                            <div class="instructions-box">
+                                <p style="white-space: pre-line;">
+                                    @Model.Instructions
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+        </div>
+    </div>
+</section>

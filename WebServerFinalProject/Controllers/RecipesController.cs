@@ -3,6 +3,7 @@ using WebServerFinalProject.Models;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using WebServerFinalProject.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebServerFinalProject.Controllers
 {
@@ -18,53 +19,90 @@ namespace WebServerFinalProject.Controllers
         {
             return RedirectToAction("Index", new { q = formData.title });
         }
+
         public async Task<ActionResult<List<Recipe>>> Index(string? q, string? difficulty)
         {
+            // Start with all recipes as a queryable
+            var recipesQuery = _dbContext.Recipes.AsQueryable();
+
+            // Filter by search term if provided
             if (!q.IsNullOrEmpty())
             {
-                if(difficulty.IsNullOrEmpty())
-                {
-                    var recipes = _dbContext.Recipes.Where(n => n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)).ToList();
-                    return View(recipes);
-                }
-                else
-                {
-                    var recipes = _dbContext.Recipes.Where(n => (n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)) && n.Difficulty.Equals(difficulty)).ToList();
-                    return View(recipes);
-                
-                }
+                var lowerQ = q.ToLower();
+                recipesQuery = recipesQuery.Where(n =>
+                    n.Title.ToLower().Contains(lowerQ));
             }
-            else
+
+            // Filter by difficulty if provided
+            if (!difficulty.IsNullOrEmpty())
             {
-                var recipes = _dbContext.Recipes.ToList();
-                return View(recipes);
+                recipesQuery = recipesQuery.Where(n => n.Difficulty == difficulty);
             }
+
+            // Execute query
+            var recipes = recipesQuery.ToList();
+
+            return View(recipes);
         }
 
         // /Recipes/Season
-        //TODO: The Drop down resets everytime the page refreshes(JavaScript stuff :) )
         public IActionResult Season(string? category)
         {
-            var seasonedRecipes = _dbContext.Recipes.Join(_dbContext.Categories, r => r.CategoryId, c => c.CategoryId, (r, c) => new { Recipe = r, CategoryName = c.Name })
-                .Where(rc => rc.CategoryName == category)
-                .ToList();
-            List<Recipe> recipes = new List<Recipe>();
-            foreach (var item in seasonedRecipes)
+            ViewBag.SelectedSeason = category;
+
+            if (!string.IsNullOrEmpty(category))
             {
-                recipes.Add(item.Recipe);
+                var seasonedRecipes = _dbContext.Recipes
+                    .Join(_dbContext.Categories,
+                        r => r.CategoryId,
+                        c => c.CategoryId,
+                        (r, c) => new { Recipe = r, CategoryName = c.Name })
+                    .Where(rc => rc.CategoryName == category)
+                    .ToList();
+
+                List<Recipe> recipes = seasonedRecipes
+                    .Select(item => item.Recipe)
+                    .ToList();
+
+                return View(recipes);
             }
-            return View(recipes);
+
+            return View(new List<Recipe>());
         }
 
         // /Recipes/Type
         public IActionResult Type(string? type)
         {
-            if(!type.IsNullOrEmpty())
+            ViewBag.SelectedType = type;
+
+            if (!type.IsNullOrEmpty())
             {
-                var typedRecipes = _dbContext.Recipes.Where(r => r.Type == type).ToList();
+                var typedRecipes = _dbContext.Recipes
+                    .Where(r => r.Type == type)
+                    .ToList();
+
                 return View(typedRecipes);
             }
-            return View();
+
+            // When no type is selected yet, just return an empty list
+            return View(new List<Recipe>());
+        }
+
+        // /Recipes/Details
+        public IActionResult Details(int id)
+        {
+            var recipe = _dbContext.Recipes
+                .Include(r => r.RecipeIngredients)
+                .ThenInclude(ri => ri.Ingredient)
+                .Include(r => r.Category)
+                .FirstOrDefault(r => r.ID == id);
+
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+
+            return View(recipe);
         }
     }
 }

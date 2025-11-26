@@ -1,0 +1,134 @@
+﻿@model WebServerFinalProject.Models.DatabaseInfoViewModel
+
+@{
+    ViewData["Title"] = "Database Overview";
+}
+
+<section class="container py-5">
+    <div class="text-center mb-4">
+        <h1 class="display-6 fw-normal mb-2">Database Overview</h1>
+    </div>
+
+    <!-- Summary cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+            <div class="card text-center h-100 summary-card">
+                <div class="card-body py-3">
+                    <p class="summary-label mb-1">Recipes</p>
+                    <p class="summary-value">@Model.RecipeCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="card text-center h-100 summary-card">
+                <div class="card-body py-3">
+                    <p class="summary-label mb-1">Ingredients</p>
+                    <p class="summary-value">@Model.IngredientCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="card text-center h-100 summary-card">
+                <div class="card-body py-3">
+                    <p class="summary-label mb-1">Categories</p>
+                    <p class="summary-value">@Model.CategoryCount</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <div class="card text-center h-100 summary-card">
+                <div class="card-body py-3">
+                    <p class="summary-label mb-1">Recipe Links</p>
+                    <p class="summary-value">@Model.RecipeIngredientCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category distribution -->
+    <section class="mb-4">
+        <h2 class="h5 mb-2">Recipes by Season (Category)</h2>
+        <p class="text-body-secondary small mb-2">
+            Each category represents a seasonal baking theme.
+        </p>
+
+        <div class="table-responsive">
+            <table class="table table-sm align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th class="text-end">Recipe Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cat in Model.Categories)
+                    {
+                        <tr>
+                            <td>@cat.Name</td>
+                            <td class="text-end">@cat.RecipeCount</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Type distribution -->
+    <section class="mb-4">
+        <h2 class="h5 mb-2">Recipes by Type</h2>
+        <p class="text-body-secondary small mb-2">
+            Basic baking types used across the site (Cake, Pie, Bread, Cookies, Dessert).
+        </p>
+
+        <div class="table-responsive">
+            <table class="table table-sm align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th class="text-end">Recipe Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var t in Model.Types)
+                    {
+                        <tr>
+                            <td>@t.Type</td>
+                            <td class="text-end">@t.RecipeCount</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Difficulty distribution -->
+    <section>
+        <h2 class="h5 mb-2">Recipes by Difficulty</h2>
+        <p class="text-body-secondary small mb-2">
+            Simple view of how many recipes are Easy, Medium, or Hard.
+        </p>
+
+        <div class="table-responsive">
+            <table class="table table-sm align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Difficulty</th>
+                        <th class="text-end">Recipe Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var d in Model.Difficulties)
+                    {
+                        <tr>
+                            <td>@d.Difficulty</td>
+                            <td class="text-end">@d.RecipeCount</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+</section>

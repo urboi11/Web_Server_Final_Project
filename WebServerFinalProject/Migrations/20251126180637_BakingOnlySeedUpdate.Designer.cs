@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebServerFinalProject.Data;
 
@@ -11,9 +12,11 @@ using WebServerFinalProject.Data;
 namespace WebServerFinalProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251126180637_BakingOnlySeedUpdate")]
+    partial class BakingOnlySeedUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,14 +193,10 @@ namespace WebServerFinalProject.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Difficulty")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Instructions")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PrepMinutes")
@@ -223,9 +222,8 @@ namespace WebServerFinalProject.Migrations
                             ID = 1,
                             BakeMinutes = 30,
                             CategoryId = 3,
-                            Description = "A simple chocolate cake anyone can bake.",
-                            Difficulty = "Easy",
-                            Instructions = "1. Preheat oven to 350°F (175°C).\n2. Whisk flour, sugar, cocoa, and baking powder.\n3. Add eggs, melted butter, milk, and vanilla.\n4. Pour into a greased pan.\n5. Bake 30 minutes or until a toothpick comes out clean.\n6. Let cool before slicing.",
+                            Description = "A rich and moist chocolate cake.",
+                            Difficulty = "Medium",
                             PrepMinutes = 15,
                             Title = "Chocolate Cake",
                             Type = "Cake"
@@ -235,11 +233,10 @@ namespace WebServerFinalProject.Migrations
                             ID = 2,
                             BakeMinutes = 40,
                             CategoryId = 2,
-                            Description = "A beginner-friendly apple pie with a simple filling.",
+                            Description = "Classic fall apple pie with a caramel twist.",
                             Difficulty = "Medium",
-                            Instructions = "1. Preheat oven to 375°F (190°C).\n2. Mix sliced apples with sugar and cinnamon.\n3. Place mixture into pie crust.\n4. Add top crust and cut small slits.\n5. Bake 40 minutes or until crust is golden.\n6. Cool 10 minutes before serving.",
                             PrepMinutes = 20,
-                            Title = "Classic Apple Pie",
+                            Title = "Caramel Apple Pie",
                             Type = "Pie"
                         },
                         new
@@ -247,11 +244,10 @@ namespace WebServerFinalProject.Migrations
                             ID = 3,
                             BakeMinutes = 50,
                             CategoryId = 2,
-                            Description = "A soft, cozy pumpkin loaf made in one bowl.",
+                            Description = "Soft and spiced pumpkin quick bread.",
                             Difficulty = "Easy",
-                            Instructions = "1. Preheat oven to 350°F (175°C).\n2. Stir flour, sugar, cinnamon, and baking powder.\n3. Add eggs, melted butter, milk, and pumpkin.\n4. Pour into a greased loaf pan.\n5. Bake 50 minutes or until set.\n6. Cool before slicing.",
                             PrepMinutes = 15,
-                            Title = "Easy Pumpkin Bread",
+                            Title = "Pumpkin Bread",
                             Type = "Bread"
                         },
                         new
@@ -259,10 +255,9 @@ namespace WebServerFinalProject.Migrations
                             ID = 4,
                             BakeMinutes = 0,
                             CategoryId = 1,
-                            Description = "Light and simple layered strawberry dessert.",
+                            Description = "Layered strawberries, cream, and cake in a cup.",
                             Difficulty = "Easy",
-                            Instructions = "1. Slice strawberries and mix with a little sugar.\n2. Crumble shortcake or vanilla cake.\n3. Layer cake, berries, and whipped cream in cups.\n4. Repeat layers.\n5. Chill for 10 minutes and serve.",
-                            PrepMinutes = 10,
+                            PrepMinutes = 15,
                             Title = "Strawberry Shortcake Cups",
                             Type = "Dessert"
                         },
@@ -271,33 +266,30 @@ namespace WebServerFinalProject.Migrations
                             ID = 5,
                             BakeMinutes = 25,
                             CategoryId = 4,
-                            Description = "Simple lemon bars with a buttery crust.",
+                            Description = "Tangy lemon bars with a buttery shortbread crust.",
                             Difficulty = "Easy",
-                            Instructions = "1. Preheat oven to 350°F (175°C).\n2. Mix crust: flour, sugar, melted butter.\n3. Press crust into a pan and bake 10 minutes.\n4. Whisk lemon juice, sugar, eggs, and flour.\n5. Pour over warm crust.\n6. Bake 15 more minutes and cool before cutting.",
                             PrepMinutes = 15,
                             Title = "Lemon Bars",
-                            Type = "Dessert"
+                            Type = "Bars"
                         },
                         new
                         {
                             ID = 6,
                             BakeMinutes = 20,
                             CategoryId = 4,
-                            Description = "Soft cinnamon rolls made with basic dough.",
+                            Description = "Soft cinnamon rolls with a sweet glaze.",
                             Difficulty = "Medium",
-                            Instructions = "1. Mix flour, yeast, sugar, milk, and butter into soft dough.\n2. Roll the dough into a rectangle.\n3. Spread butter, cinnamon, and sugar.\n4. Roll up and slice into spirals.\n5. Bake 20 minutes at 350°F.\n6. Add icing if desired.",
                             PrepMinutes = 25,
-                            Title = "Simple Cinnamon Rolls",
-                            Type = "Bread"
+                            Title = "Cinnamon Rolls",
+                            Type = "Rolls"
                         },
                         new
                         {
                             ID = 7,
                             BakeMinutes = 12,
                             CategoryId = 2,
-                            Description = "Soft, chewy cookies rolled in cinnamon sugar.",
+                            Description = "Sweet and simple fall cookies.",
                             Difficulty = "Easy",
-                            Instructions = "1. Cream butter and sugar.\n2. Add eggs and vanilla.\n3. Stir in flour, baking powder, and cinnamon.\n4. Roll dough into balls.\n5. Coat in cinnamon sugar.\n6. Bake 12 minutes at 350°F.",
                             PrepMinutes = 15,
                             Title = "Cinnamon Sugar Cookies",
                             Type = "Cookies"
@@ -307,22 +299,20 @@ namespace WebServerFinalProject.Migrations
                             ID = 8,
                             BakeMinutes = 18,
                             CategoryId = 3,
-                            Description = "Beginner-friendly yeast rolls for any holiday.",
+                            Description = "Soft, buttery dinner rolls perfect for holidays.",
                             Difficulty = "Medium",
-                            Instructions = "1. Combine flour, yeast, milk, sugar, and butter.\n2. Knead 5 minutes.\n3. Let rise 1 hour.\n4. Shape into rolls.\n5. Bake 18 minutes at 350°F.\n6. Brush with melted butter.",
                             PrepMinutes = 20,
-                            Title = "Soft Dinner Rolls",
-                            Type = "Bread"
+                            Title = "Holiday Dinner Rolls",
+                            Type = "Rolls"
                         },
                         new
                         {
                             ID = 9,
                             BakeMinutes = 50,
                             CategoryId = 5,
-                            Description = "A simple, moist banana bread anyone can make.",
+                            Description = "Moist banana bread with a tender crumb.",
                             Difficulty = "Easy",
-                            Instructions = "1. Mash ripe bananas.\n2. Stir in sugar, eggs, and melted butter.\n3. Add flour and baking powder.\n4. Pour into a loaf pan.\n5. Bake 50 minutes at 350°F.\n6. Cool completely before slicing.",
-                            PrepMinutes = 10,
+                            PrepMinutes = 15,
                             Title = "Banana Bread",
                             Type = "Bread"
                         },
@@ -331,12 +321,11 @@ namespace WebServerFinalProject.Migrations
                             ID = 10,
                             BakeMinutes = 0,
                             CategoryId = 3,
-                            Description = "An easy no-bake tart with a basic ganache filling.",
-                            Difficulty = "Medium",
-                            Instructions = "1. Mix graham crumbs and melted butter.\n2. Press into a tart pan and chill.\n3. Heat cream until warm.\n4. Stir in chocolate chips until smooth.\n5. Pour into crust.\n6. Chill 1 hour before serving.",
+                            Description = "No-bake chocolate tart with a graham cracker crust.",
+                            Difficulty = "Hard",
                             PrepMinutes = 20,
-                            Title = "No-Bake Chocolate Tart",
-                            Type = "Dessert"
+                            Title = "Chocolate Ganache Tart",
+                            Type = "Tart"
                         });
                 });
 

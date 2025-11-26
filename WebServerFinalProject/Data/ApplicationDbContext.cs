@@ -79,111 +79,180 @@ namespace WebServerFinalProject.Data
                 {
                     ID = 1,
                     Title = "Chocolate Cake",
-                    Description = "Whisk together the batter, pour into a pan, and bake until a toothpick comes out clean.",
-                    Difficulty = "Medium",
+                    Description = "A simple chocolate cake anyone can bake.",
+                    Difficulty = "Easy",
                     PrepMinutes = 15,
                     BakeMinutes = 30,
                     Type = "Cake",
-                    CategoryId = 3 // Holiday
+                    CategoryId = 3,
+                    Instructions =
+                        "1. Preheat oven to 350°F (175°C).\n" +
+                        "2. Whisk flour, sugar, cocoa, and baking powder.\n" +
+                        "3. Add eggs, melted butter, milk, and vanilla.\n" +
+                        "4. Pour into a greased pan.\n" +
+                        "5. Bake 30 minutes or until a toothpick comes out clean.\n" +
+                        "6. Let cool before slicing."
                 },
                 new Recipe
                 {
                     ID = 2,
-                    Title = "Caramel Apple Pie",
-                    Description = "Fill a basic pie crust with spiced apples, add caramel, and bake until golden and bubbly.",
+                    Title = "Classic Apple Pie",
+                    Description = "A beginner-friendly apple pie with a simple filling.",
                     Difficulty = "Medium",
                     PrepMinutes = 20,
                     BakeMinutes = 40,
                     Type = "Pie",
-                    CategoryId = 2 // Fall
+                    CategoryId = 2,
+                    Instructions =
+                        "1. Preheat oven to 375°F (190°C).\n" +
+                        "2. Mix sliced apples with sugar and cinnamon.\n" +
+                        "3. Place mixture into pie crust.\n" +
+                        "4. Add top crust and cut small slits.\n" +
+                        "5. Bake 40 minutes or until crust is golden.\n" +
+                        "6. Cool 10 minutes before serving."
                 },
                 new Recipe
                 {
                     ID = 3,
-                    Title = "Pumpkin Bread",
-                    Description = "Stir a simple pumpkin batter together in one bowl and bake until the loaf is set in the center.",
+                    Title = "Easy Pumpkin Bread",
+                    Description = "A soft, cozy pumpkin loaf made in one bowl.",
                     Difficulty = "Easy",
                     PrepMinutes = 15,
                     BakeMinutes = 50,
                     Type = "Bread",
-                    CategoryId = 2 // Fall
+                    CategoryId = 2,
+                    Instructions =
+                        "1. Preheat oven to 350°F (175°C).\n" +
+                        "2. Stir flour, sugar, cinnamon, and baking powder.\n" +
+                        "3. Add eggs, melted butter, milk, and pumpkin.\n" +
+                        "4. Pour into a greased loaf pan.\n" +
+                        "5. Bake 50 minutes or until set.\n" +
+                        "6. Cool before slicing."
                 },
                 new Recipe
                 {
                     ID = 4,
                     Title = "Strawberry Shortcake Cups",
-                    Description = "Layer bite-size cake pieces, sweet berries, and whipped cream into small serving cups.",
+                    Description = "Light and simple layered strawberry dessert.",
                     Difficulty = "Easy",
-                    PrepMinutes = 15,
+                    PrepMinutes = 10,
                     BakeMinutes = 0,
                     Type = "Dessert",
-                    CategoryId = 1 // Spring
+                    CategoryId = 1,
+                    Instructions =
+                        "1. Slice strawberries and mix with a little sugar.\n" +
+                        "2. Crumble shortcake or vanilla cake.\n" +
+                        "3. Layer cake, berries, and whipped cream in cups.\n" +
+                        "4. Repeat layers.\n" +
+                        "5. Chill for 10 minutes and serve."
                 },
                 new Recipe
                 {
                     ID = 5,
                     Title = "Lemon Bars",
-                    Description = "Press a simple crust into a pan, pour on the lemon filling, and bake until just set.",
+                    Description = "Simple lemon bars with a buttery crust.",
                     Difficulty = "Easy",
                     PrepMinutes = 15,
                     BakeMinutes = 25,
                     Type = "Dessert",
-                    CategoryId = 4 // Summer
+                    CategoryId = 4,
+                    Instructions =
+                        "1. Preheat oven to 350°F (175°C).\n" +
+                        "2. Mix crust: flour, sugar, melted butter.\n" +
+                        "3. Press crust into a pan and bake 10 minutes.\n" +
+                        "4. Whisk lemon juice, sugar, eggs, and flour.\n" +
+                        "5. Pour over warm crust.\n" +
+                        "6. Bake 15 more minutes and cool before cutting."
                 },
                 new Recipe
                 {
                     ID = 6,
-                    Title = "Cinnamon Rolls",
-                    Description = "Mix a soft dough, roll it with cinnamon sugar, slice, and bake until fluffy and golden.",
+                    Title = "Simple Cinnamon Rolls",
+                    Description = "Soft cinnamon rolls made with basic dough.",
                     Difficulty = "Medium",
                     PrepMinutes = 25,
                     BakeMinutes = 20,
                     Type = "Bread",
-                    CategoryId = 4 // Summer
+                    CategoryId = 4,
+                    Instructions =
+                        "1. Mix flour, yeast, sugar, milk, and butter into soft dough.\n" +
+                        "2. Roll the dough into a rectangle.\n" +
+                        "3. Spread butter, cinnamon, and sugar.\n" +
+                        "4. Roll up and slice into spirals.\n" +
+                        "5. Bake 20 minutes at 350°F.\n" +
+                        "6. Add icing if desired."
                 },
                 new Recipe
                 {
                     ID = 7,
                     Title = "Cinnamon Sugar Cookies",
-                    Description = "Cream butter and sugar, roll the dough into balls, coat in cinnamon sugar, and bake.",
+                    Description = "Soft, chewy cookies rolled in cinnamon sugar.",
                     Difficulty = "Easy",
                     PrepMinutes = 15,
                     BakeMinutes = 12,
                     Type = "Cookies",
-                    CategoryId = 2 // Fall
+                    CategoryId = 2,
+                    Instructions =
+                        "1. Cream butter and sugar.\n" +
+                        "2. Add eggs and vanilla.\n" +
+                        "3. Stir in flour, baking powder, and cinnamon.\n" +
+                        "4. Roll dough into balls.\n" +
+                        "5. Coat in cinnamon sugar.\n" +
+                        "6. Bake 12 minutes at 350°F."
                 },
                 new Recipe
                 {
                     ID = 8,
-                    Title = "Holiday Dinner Rolls",
-                    Description = "Let a simple yeast dough rise, shape into rolls, and bake until lightly browned.",
+                    Title = "Soft Dinner Rolls",
+                    Description = "Beginner-friendly yeast rolls for any holiday.",
                     Difficulty = "Medium",
                     PrepMinutes = 20,
                     BakeMinutes = 18,
                     Type = "Bread",
-                    CategoryId = 3 // Holiday
+                    CategoryId = 3,
+                    Instructions =
+                        "1. Combine flour, yeast, milk, sugar, and butter.\n" +
+                        "2. Knead 5 minutes.\n" +
+                        "3. Let rise 1 hour.\n" +
+                        "4. Shape into rolls.\n" +
+                        "5. Bake 18 minutes at 350°F.\n" +
+                        "6. Brush with melted butter."
                 },
                 new Recipe
                 {
                     ID = 9,
                     Title = "Banana Bread",
-                    Description = "Mash ripe bananas, stir in the batter, and bake until the loaf is browned and fragrant.",
+                    Description = "A simple, moist banana bread anyone can make.",
                     Difficulty = "Easy",
-                    PrepMinutes = 15,
+                    PrepMinutes = 10,
                     BakeMinutes = 50,
                     Type = "Bread",
-                    CategoryId = 5 // Winter
+                    CategoryId = 5,
+                    Instructions =
+                        "1. Mash ripe bananas.\n" +
+                        "2. Stir in sugar, eggs, and melted butter.\n" +
+                        "3. Add flour and baking powder.\n" +
+                        "4. Pour into a loaf pan.\n" +
+                        "5. Bake 50 minutes at 350°F.\n" +
+                        "6. Cool completely before slicing."
                 },
                 new Recipe
                 {
                     ID = 10,
-                    Title = "Chocolate Ganache Tart",
-                    Description = "Press crumbs into a tart pan, chill, then fill with a simple chocolate ganache and let it set.",
-                    Difficulty = "Hard",
+                    Title = "No-Bake Chocolate Tart",
+                    Description = "An easy no-bake tart with a basic ganache filling.",
+                    Difficulty = "Medium",
                     PrepMinutes = 20,
                     BakeMinutes = 0,
                     Type = "Dessert",
-                    CategoryId = 3 // Holiday
+                    CategoryId = 3,
+                    Instructions =
+                        "1. Mix graham crumbs and melted butter.\n" +
+                        "2. Press into a tart pan and chill.\n" +
+                        "3. Heat cream until warm.\n" +
+                        "4. Stir in chocolate chips until smooth.\n" +
+                        "5. Pour into crust.\n" +
+                        "6. Chill 1 hour before serving."
                 }
             );
 

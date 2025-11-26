@@ -287,3 +287,52 @@ main {
     width: 52px;
     height: 52px;
 }
+
+/* Details Card Styling */
+.recipe-details-card {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Soft header background */
+.details-header {
+    background: #FEF0F4; /* your CozyBakes pastel pink */
+    color: var(--cozy-ink);
+}
+
+.details-dot {
+    margin: 0 6px;
+}
+
+/* Ingredients list styling */
+.ingredients-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+    .ingredients-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: .45rem;
+        font-size: .95rem;
+    }
+
+.ingredient-dot {
+    height: 8px;
+    width: 8px;
+    background: var(--cozy-teal);
+    border-radius: 50%;
+    margin-right: .5rem;
+}
+
+/* Instructions area */
+.instructions-box {
+    background: #fffdf8;
+    border: 1px solid #f2e6d9;
+    border-radius: .5rem;
+    padding: 1rem .85rem;
+    font-size: .95rem;
+    line-height: 1.55;
+    color: var(--cozy-body);
+}

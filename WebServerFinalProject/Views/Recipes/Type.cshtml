@@ -59,11 +59,29 @@
                             <p class="card-text mb-2">
                                 @recipe.Description
                             </p>
+
+                            <p class="card-text small mb-2 text-end">
+                                <span class="difficulty-badge @recipe.Difficulty.ToLower()">
+                                    @recipe.Difficulty
+                                </span>
+                            </p>
+
+                            <p class="card-text small text-body-secondary mb-1">
+                                <strong>Type:</strong> @recipe.Type
+                            </p>
+
                             <p class="card-text small text-body-secondary mb-0">
                                 <strong>Prep:</strong> @recipe.PrepMinutes min
                                 <span class="mx-1">•</span>
                                 <strong>Bake:</strong> @recipe.BakeMinutes min
                             </p>
+                            <a asp-action="Details"
+                               asp-controller="Recipes"
+                               asp-route-id="@recipe.ID"
+                               class="btn btn-teal btn-sm w-100 mt-2">
+                                View Recipe
+                            </a>
+
                         </div>
                     </article>
                 </div>

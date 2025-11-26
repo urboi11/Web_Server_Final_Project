@@ -3,6 +3,7 @@ using WebServerFinalProject.Models;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using WebServerFinalProject.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebServerFinalProject.Controllers
 {
@@ -18,6 +19,7 @@ namespace WebServerFinalProject.Controllers
         {
             return RedirectToAction("Index", new { q = formData.title });
         }
+
         public async Task<ActionResult<List<Recipe>>> Index(string? q, string? difficulty)
         {
             // Start with all recipes as a queryable
@@ -68,7 +70,6 @@ namespace WebServerFinalProject.Controllers
             return View(new List<Recipe>());
         }
 
-
         // /Recipes/Type
         public IActionResult Type(string? type)
         {
@@ -87,5 +88,21 @@ namespace WebServerFinalProject.Controllers
             return View(new List<Recipe>());
         }
 
+        // /Recipes/Details
+        public IActionResult Details(int id)
+        {
+            var recipe = _dbContext.Recipes
+                .Include(r => r.RecipeIngredients)
+                .ThenInclude(ri => ri.Ingredient)
+                .Include(r => r.Category)
+                .FirstOrDefault(r => r.ID == id);
+
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+
+            return View(recipe);
+        }
     }
 }

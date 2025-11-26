@@ -70,7 +70,10 @@
                     <p>@recipe.Description</p>
                     <p>Prep: @recipe.PrepMinutes min</p>
                     <p>Bake: @recipe.BakeMinutes min</p>
-                    @* Add other recipe properties here if you want *@
+                    <form asp-action="submitForm" asp-controller="Recipes" method="post">
+                        <input type="hidden" name="title" value="@recipe.Title" />
+                        <button class="btn btn-teal" >View Details</button>
+                    </form>
                 </article>
             </div>
         }

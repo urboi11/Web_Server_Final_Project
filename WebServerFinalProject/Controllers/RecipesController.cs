@@ -20,25 +20,27 @@ namespace WebServerFinalProject.Controllers
         }
         public async Task<ActionResult<List<Recipe>>> Index(string? q, string? difficulty)
         {
+            // Start with all recipes as a queryable
+            var recipesQuery = _dbContext.Recipes.AsQueryable();
+
+            // Filter by search term if provided
             if (!q.IsNullOrEmpty())
             {
-                if (difficulty.IsNullOrEmpty())
-                {
-                    var recipes = _dbContext.Recipes.Where(n => n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)).ToList();
-                    return View(recipes);
-                }
-                else
-                {
-                    var recipes = _dbContext.Recipes.Where(n => (n.Title.ToLower().Equals(q) || n.Title.ToLower().Contains(q)) && n.Difficulty.Equals(difficulty)).ToList();
-                    return View(recipes);
+                var lowerQ = q.ToLower();
+                recipesQuery = recipesQuery.Where(n =>
+                    n.Title.ToLower().Contains(lowerQ));
+            }
 
-                }
-            }
-            else
+            // Filter by difficulty if provided
+            if (!difficulty.IsNullOrEmpty())
             {
-                var recipes = _dbContext.Recipes.ToList();
-                return View(recipes);
+                recipesQuery = recipesQuery.Where(n => n.Difficulty == difficulty);
             }
+
+            // Execute query
+            var recipes = recipesQuery.ToList();
+
+            return View(recipes);
         }
 
         // /Recipes/Season

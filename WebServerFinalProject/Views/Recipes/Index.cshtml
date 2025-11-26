@@ -1,28 +1,86 @@
 @model List<Recipe>
-@{ ViewData["Title"] = "All Recipes"; }
 
-<div class="SearchBar">
-<h1>All Recipes</h1>
-  <form asp-action="Index" asp-controller="Recipes" method="post">
-        <input type="text" id="search-term" name="q" placeholder="Search for Recipes..." required>
-        <button type="submit">Search</button>
-        <select name="difficulty" id="myDropdown">
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
-    </select>
-  </form>
-</div>
-@if(Model != null){
-  @foreach(Recipe recipe in Model){
-    <div class="SearchResults">
-      <p><strong>Recipe: </strong>@recipe.Title</p>
-      <p><strong>Description: </strong>@recipe.Description</p>
-      <p><strong>Prep Minutes: </strong>@recipe.PrepMinutes</p>
-      <p><strong>Bake Minutes: </strong>@recipe.BakeMinutes</p>
-    </div>
-  }
+@{
+    ViewData["Title"] = "All Recipes";
+
+    // Read current search + difficulty from query string so the form remembers values
+    var searchTerm = Context.Request.Query["q"].ToString() ?? string.Empty;
+    var selectedDifficulty = Context.Request.Query["difficulty"].ToString();
 }
 
+<section class="container py-4">
+    <div class="text-center mb-4">
+        <h1 class="display-6 fw-normal mb-2">All Recipes</h1>
+        <p class="text-body-secondary small mb-0">
+            Browse all CozyBakes recipes, or narrow them down by name and difficulty.
+        </p>
+    </div>
 
+    <!-- Filter / Search Bar -->
+    <form asp-action="Index"
+          asp-controller="Recipes"
+          method="get"
+          class="row justify-content-center mb-4">
+
+        <div class="col-12 col-lg-8">
+            <div class="filter-bar d-flex flex-column flex-md-row gap-2">
+                <input type="text"
+                       id="search-term"
+                       name="q"
+                       class="form-control"
+                       placeholder="Search for recipes..."
+                       value="@searchTerm" />
+
+                <select name="difficulty"
+                        id="myDropdown"
+                        class="form-select filter-select">
+                    <option value="">All difficulties</option>
+                    <option value="Easy" selected="@(selectedDifficulty == "Easy" ? "selected" : null)">Easy</option>
+                    <option value="Medium" selected="@(selectedDifficulty == "Medium" ? "selected" : null)">Medium</option>
+                    <option value="Hard" selected="@(selectedDifficulty == "Hard" ? "selected" : null)">Hard</option>
+                </select>
+
+                <button type="submit" class="btn btn-teal filter-btn">
+                    Search
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row g-4">
+            @foreach (var recipe in Model)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="feature-card card h-100">
+                        <div class="card-body">
+                            <h2 class="h5 card-title mb-2">@recipe.Title</h2>
+                            <p class="card-text mb-2">@recipe.Description</p>
+
+                            <p class="card-text small text-body-secondary mb-0">
+                                <strong>Prep:</strong> @recipe.PrepMinutes min
+                                <span class="mx-1">•</span>
+                                <strong>Bake:</strong> @recipe.BakeMinutes min
+                            </p>
+
+                            <p class="card-text small mb-2 text-end">
+                                <span class="difficulty-badge @recipe.Difficulty.ToLower()">
+                                    @recipe.Difficulty
+                                </span>
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-center text-body-secondary mt-3">
+            No recipes found. Try adjusting your search or difficulty filters.
+        </p>
+    }
+</section>
 

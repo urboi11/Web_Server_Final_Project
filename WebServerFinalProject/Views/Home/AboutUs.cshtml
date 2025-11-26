@@ -1,3 +1,187 @@
-@{ ViewData["Title"] = "About Us"; }
-<h1>About the Team Behind <b>CozyBakes</b></h1>
-<p>Team intros and roles.</p>
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<section class="about-page container py-4">
+    <div class="text-center mb-4">
+        <h1 class="display-6 fw-normal mb-2">
+            About the Team Behind
+            <span class="brand-script">
+                <span class="cozy">Cozy</span>
+                <span class="b">B</span>
+                <span class="a">a</span>
+                <span class="k">k</span>
+                <span class="e">e</span>
+                <span class="s">s</span>
+            </span>
+        </h1>
+    </div>
+</section>
+
+<section class="about-section">
+    <h2>Our Project</h2>
+    <p>
+        CozyBakes is a group project developed for Web Server Application Development. Our team collaborated
+        to create a full-featured baking website that demonstrates modern web technologies, responsive design,
+        and user-centered functionality. From recipe browsing to seasonal categories and helpful baking tips,
+        we built this platform to showcase our skills in both frontend and backend development.
+    </p>
+</section>
+
+<section class="about-section">
+    <h2>Team Members</h2>
+    <p class="about-helper-text">
+        Each team member contributed in a different way to bring CozyBakes to life.
+        Below is a brief overview of our roles and a short intro written by each person.
+    </p>
+
+    <div class="about-table-wrapper">
+        <table class="about-team-table">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 20%;">Name</th>
+                    <th scope="col" style="width: 25%;">Role</th>
+                    <th scope="col" style="width: 55%;">About</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nirupama</td>
+                    <td>Backend &amp; Database Developer</td>
+                    <td>
+                        I was the backend and database developer. I designed the models (Recipe, Ingredient, RecipeIngredient, Category),
+                        configured EF Core, ran migrations, and populated seed data in the DbContext. I recently made changes to the seed
+                        data by adding six more recipes, more ingredients, and additional tags.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Isabella</td>
+                    <td>Frontend &amp; UI Developer</td>
+                    <td>
+                        I served as the UI and Frontend Developer for the CozyBakes project. I designed and built
+                        the layout, styling, and overall visual flow of the site, including the navigation, page
+                        structure, and responsive design. I enjoy baking because it lets me be creative while making
+                        something comforting for others. Throughout this project, I learned more about creativity within
+                        UI design and working as a team to bring all of our pieces together.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jason</td>
+                    <td>Controller &amp; Integration Developer / GitHub Manager</td>
+                    <td>
+                        I worked as the backend developer for the project. I helped integrate different pieces of functionality
+                        between the backend and frontend to help the application function correctly. Overall, I love baking because
+                        it helps put creativity into food. I enjoyed working as the backend developer because it made me appreciate
+                        team collaboration.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="about-technologies">
+    <h2>Technologies Used</h2>
+    <p>
+        Our team utilized modern web development tools and frameworks to create CozyBakes. The application
+        is built with ASP.NET Core MVC and C#, using Razor views for the frontend and Entity Framework Core
+        for data access and database management.
+    </p>
+    <p>
+        We implemented features like seasonal recipe filtering, type-based browsing, and a baking tips section
+        to support ingredient substitutions and helpful hints. The project demonstrates our understanding of
+        MVC architecture, routing, model binding, and user interface design principles.
+    </p>
+    <p>
+        This project allowed us to apply concepts learned in class while exploring creative solutions to
+        real-world web development challenges.
+    </p>
+</section>
+
+<style>
+    /* All section containers match */
+    .about-section,
+    .about-technologies {
+        margin-bottom: 3rem;
+    }
+
+        /* Unified section headers */
+        .about-section h2,
+        .about-technologies h2 {
+            font-size: 26px;
+            color: var(--cozy-ink);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Unified paragraph styles */
+        .about-section p,
+        .about-technologies p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--cozy-body);
+        }
+
+    .about-helper-text {
+        font-size: 17px;
+        color: var(--cozy-muted);
+        margin-bottom: 1rem;
+    }
+
+    /* Team table */
+    .about-table-wrapper {
+        margin-top: 1rem;
+        background: #fffdf8;
+        border-radius: 1rem;
+        padding: 1.75rem;
+    }
+
+    .about-team-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 18px;
+    }
+
+        .about-team-table thead tr {
+            background: #FEF0F4;
+        }
+
+        .about-team-table th,
+        .about-team-table td {
+            padding: 1rem 0.9rem;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .about-team-table th {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--cozy-ink);
+            border-bottom: 3px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .about-team-table tbody tr:nth-child(odd) {
+            background-color: #fff9f2;
+        }
+
+        .about-team-table tbody tr:nth-child(even) {
+            background-color: #fefcf7;
+        }
+
+        .about-team-table tbody tr:hover {
+            background-color: #fde8d1;
+        }
+
+        .about-team-table td:first-child {
+            font-weight: 700;
+            color: var(--cozy-ink);
+            font-size: 19px;
+        }
+
+    .about-technologies {
+        background: #FEF0F4;
+        border-radius: 10px;
+        padding: 2rem;
+    }
+</style>

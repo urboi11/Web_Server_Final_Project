@@ -61,33 +61,18 @@
     </div>
 
     <div class="row g-4">
-        <!-- Card 1 -->
-        <div class="col-12 col-md-6 col-lg-3">
-            <article class="recipe-card card h-100">
-                @Model[0].Title                     
-            </article>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="col-12 col-md-6 col-lg-3">
-            <article class="recipe-card card h-100">
-                @Model[1].Title
-            </article>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="col-12 col-md-6 col-lg-3">
-            <article class="recipe-card card h-100">
-                @Model[2].Title
-            </article>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="col-12 col-md-6 col-lg-3">
-            <article class="recipe-card card h-100">
-                @Model[3].Title
-            </article>
-        </div>
-
+        @* Loop through every recipe in the list *@
+        @foreach (var recipe in Model ?? new List<Recipe>())
+        {
+            <div class="col-12 col-md-6 col-lg-3">
+                <article class="recipe-card card h-100">
+                    <h3>@recipe.Title</h3>
+                    <p>@recipe.Description</p>
+                    <p>Prep: @recipe.PrepMinutes min</p>
+                    <p>Bake: @recipe.BakeMinutes min</p>
+                    @* Add other recipe properties here if you want *@
+                </article>
+            </div>
+        }
     </div>
 </section>

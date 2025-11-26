@@ -1,7 +1,7 @@
 @model List<Recipe>
 @{ ViewData["Title"] = "All Recipes"; }
 
-<div class="SearchBar">
+<div class="SearchBar" id="SearchBar">
 <h1>All Recipes</h1>
   <form asp-action="Index" asp-controller="Recipes" method="post">
         <input type="text" id="search-term" name="q" placeholder="Search for Recipes..." required>
